@@ -1,0 +1,49 @@
+import BreadcrumbComponent from "@/components/others/Breadcrumb";
+import NewsLetter from "@/components/newsLetter/NewsLetter";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { blogPosts } from "@/data/blog/blogData";
+import Image from "next/image";
+import React from "react";
+
+const BlogTitlePage = ({ params }: { params: { title: string } }) => {
+    
+  const title = params.title.split("%20").join(" ");
+  const blog = blogPosts.find((item) => item.title === title);
+
+  return (
+    <section className="max-w-screen-2xl mx-auto p-2 md:p-12">
+      <BreadcrumbComponent links={["/blog"]} pageText={blog?.title as string} />
+      <div className="space-y-2">
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold capitalize">
+            {blog?.title}
+          </h2>
+          <div className="text-sm md:text-lg flex items-center gap-2 mt-2 text-blue-500">
+            <Avatar>
+              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarFallback>Pic</AvatarFallback>
+            </Avatar>{" "}
+            {blog?.author}
+          </div>
+        </div>
+        <div className="relative w-full h-[30rem] p-4">
+          <Image
+            className="rounded-md object-contain "
+            src={blog?.image || ""}
+            alt="blog image"
+            fill
+          />
+        </div>
+
+        <div className="py-4">
+          <p className="text-xl leading-9">{blog?.content}</p>
+        </div>
+      </div>
+      <div>
+        <NewsLetter />
+      </div>
+    </section>
+  );
+};
+
+export default BlogTitlePage;
