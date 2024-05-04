@@ -8,9 +8,10 @@ export type Product = {
     price: number;
     discount: number;
     rating: number;
-    reviews: number;
+    reviews: Record<any, string>[];
     brand?:string,
     color?:string,
+    stockItems:number
     images: string[];
   }
 
@@ -28,12 +29,13 @@ export type SearchParams = {
 
 
 export interface CartItem {
-  id: number; // Assuming product ID is a number
+  id: number; 
   name: string;
   price: number;
   quantity: number;
-  image?: string; // Added image property
-  // ... other product properties (if needed)
+  image?: string; 
+  color:string,
+  brand?:string,
 }
 
 
@@ -42,4 +44,6 @@ export interface WishlistItem {
   name: string;
   image?: string;
   price:number,
+  color:string,
+  brand:string
 }

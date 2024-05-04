@@ -19,6 +19,7 @@ export const blogPosts = [
   
           5. **Wireless Earbuds:**  Convenience meets quality with a pair of wireless earbuds. Enjoy crystal-clear audio while studying, listening to podcasts, or taking calls without the hassle of tangled wires. 
         `,
+        date: new Date()
     },
     {
       title: "The Ultimate Guide to Choosing the Perfect Gaming Laptop",
@@ -36,6 +37,7 @@ export const blogPosts = [
       excerpt:
         "Take control of your home with the power of smart technology! This blog post explores a variety of smart home devices that can automate tasks, improve your security, and even boost your energy efficiency.",
       content: "", // Replace with your actual content on smart home devices
+      date: new Date()
     },
     {
       title: "Essential Tips for Capturing Stunning Travel Photos",
@@ -45,6 +47,7 @@ export const blogPosts = [
       excerpt:
         "Capture the magic of your travels with these essential photography tips! Learn how to choose the right camera settings, frame your shots like a pro, and capture the essence of your adventures in breathtaking photos.",
       content: "", // Replace with your actual content on travel photography tips
+      date: new Date()
     },
     {
       title: "5 Eco-Friendly Tech Habits You Can Adopt Today",
@@ -60,5 +63,6 @@ export const blogPosts = [
   
           2. **Invest in Energy-Efficient Devices:**  Look for the Energy Star label when purchasing new electronics. Energy-efficient devices use less power, saving you money on your electricity bill and reducing your overall environmental footprint. 
   
-          3. **Extend the Life of Your Devices:**  Properly care for your electronics to maximize their lifespan. Regularly clean your devices, avoid extreme temperatures, and update software to keep them running smoothly. Repairing minor issues instead of immediately replacing devices also contributes to a`
+          3. **Extend the Life of Your Devices:**  Properly care for your electronics to maximize their lifespan. Regularly clean your devices, avoid extreme temperatures, and update software to keep them running smoothly. Repairing minor issues instead of immediately replacing devices also contributes to a`,
+          date: new Date()
     }]

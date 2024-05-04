@@ -20,7 +20,7 @@ const MobileHeader = () => {
     <div className="md:hidden">
       <Sheet>
         <SheetTrigger>
-          <Menu className="mt-2" size={25} />
+          <Menu className="" size={25} />
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>

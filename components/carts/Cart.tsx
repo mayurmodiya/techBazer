@@ -22,7 +22,7 @@ import { showToast } from "@/lib/showToast";
 import { CartItem } from "@/types";
 
 const Cart = () => {
-  const { cartItems, getTotalItems, removeFromCart } = useCartStore();
+  const { cartItems, getTotalItems, removeFromCart,getTotalPrice } = useCartStore();
   const [showSheet, setShowSheet] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -37,7 +37,7 @@ const Cart = () => {
 
   if (!isMounted) {
     return (
-      <div className="relative hover:opacity-30 duration-200">
+      <div className="relative hover:opacity-60 duration-200">
         <ShoppingBag size={25} />
         <Badge className="absolute -top-2 -right-3" variant="destructive">
           0
@@ -60,6 +60,7 @@ const Cart = () => {
         <SheetContent className="w-[90%]">
           <SheetHeader>
             <SheetTitle>Shopping Cart</SheetTitle>
+            <Separator />
             <SheetDescription className="flex items-start justify-between gap-4 flex-col h-[90vh]">
               <div className="overflow-y-auto">
                 {/* cart items here */}
@@ -105,7 +106,7 @@ const Cart = () => {
                 <div className="flex items-center justify-between gap-2 space-y-4">
                   <h3 className="text-xl font-semibold">Your Subtotal :</h3>
                   <p className="text-xl text-center font-bold text-green-500">
-                    $ {"4540"}
+                    $ {getTotalPrice()}
                   </p>
                 </div>
 

@@ -24,7 +24,7 @@ const ShopPageOne = ({ searchParams }: ShopPageOneProps) => {
         <div className="hidden lg:block w-72">
         <FilterProducts />
         </div>
-        <ShopPageContainer gridColumn={3} searchParams={searchParams} />
+        <ShopPageContainer showHomeBanner={false} gridColumn={3} searchParams={searchParams} />
     </section>
   );
 };

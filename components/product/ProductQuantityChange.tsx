@@ -12,7 +12,7 @@ const ProductQuantityChange = ({
   setQuantity,
 }: ProductQuantityChangeProps) => {
   return (
-    <div className="flex items-center gap-2 p-4 rounded-2xl bg-slate-200 dark:bg-slate-700">
+    <div className="flex items-center gap-2 p-2 rounded-2xl bg-slate-200 dark:bg-slate-700">
       <Button
         disabled={quantity === 1}
         onClick={() => setQuantity(quantity - 1)}

@@ -1,17 +1,24 @@
-
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
 
-const TestimonialsSection = () => {
+const TestimonialsSection = ({ textCenter }: { textCenter: boolean }) => {
   return (
-    <div className="py-16 bg-gray-200 dark:bg-gray-900">
+    <div className="py-16 bg-gray-200 dark:bg-gray-800">
       <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
-        <h2 className="text-4xl lg:text-5xl font-bold text-center text-gray-900 dark:text-white mb-12">
-          Customer Testimonials
+        <h2
+          className={cn(
+            "text-2xl md:text-5xl  font-bold text-gray-900 dark:text-white mb-12 p-2 w-fit ",
+            textCenter
+              ? "text-center border-b-4 border-b-rose-500 mx-auto rounded-b-xl"
+              : "text-start border-l-4 border-l-rose-500"
+          )}
+        >
+          Our Customer Testimonials
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-auto">
           {/* Testimonial Card */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+          <div className="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg">
             <div className="p-6">
               <p className="text-gray-700 dark:text-gray-300 mb-4 ">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac

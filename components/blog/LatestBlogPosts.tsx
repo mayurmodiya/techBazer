@@ -1,31 +1,68 @@
-import { blogPosts } from '@/data/blog/blogData'
-import Image from 'next/image'
-import React from 'react'
+import { blogPosts } from "@/data/blog/blogData";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { Button } from "../ui/button";
 
-const LatestBlogPosts = () => {
+const LatestBlogPosts = ({ twoColunmHeader }: { twoColunmHeader: boolean }) => {
   return (
-    <div className="py-16 bg-gray-200 dark:bg-gray-900">
-    <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
-      <h2 className="text-4xl lg:text-5xl font-bold text-center text-gray-900 dark:text-white mb-12">Latest Blog Posts</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 overflow-x-auto gap-6">
-        {/* Blog Post Card */}
-        {blogPosts.slice(0,3).map(blog => (
-            <div key={blog.title} className="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg">
-            <div className='relative h-[16rem] w-full '>
-            <Image src={blog.image || ''} alt="Blog Post" fill className="w-full h-64 object-contain p-4" />
-            </div>
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{blog.title}</h3>
-              <p className="text-gray-700 dark:text-gray-300">{blog.excerpt}</p>
-              <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg mt-4">Read More</button>
-            </div>
+    <div className="py-16 bg-gray-300 dark:bg-gray-950">
+      <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
+        {twoColunmHeader ? (
+          <div className="flex flex-wrap items-center justify-between mb-12">
+            <h2 className="text-2xl md:text-5xl font-bold  text-gray-900 dark:text-white border-l-4 p-2 border-l-rose-500 ">
+              Latest Blog Posts
+            </h2>
+            <Button variant={"outline"} asChild>
+              <Link href={"/blog"}>
+                Read More
+              </Link>
+            </Button>
           </div>
-        ))}
-        {/* Repeat for more blog posts */}
+        ) : (
+          <h2 className="text-2xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-12 border-b-4 border-b-rose-500 rounded-b-xl w-fit mx-auto p-2">
+            Latest Blog Posts
+          </h2>
+        )}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          {blogPosts.slice(0, 3).map((post) => (
+            <div
+              key={post.title}
+              className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md"
+            >
+              <div className="relative w-full h-[15rem] mt-2">
+                <Image
+                  src={post.image as string}
+                  fill
+                  alt={post.title}
+                  className="w-full h-48 object-contain"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  {post.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-2">
+                  By {post.author} | {post?.date?.toDateString() as Date}
+                </p>
+                <p className="text-gray-700 dark:text-gray-400">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center justify-between mt-4">
+                  <Link
+                    href={`/blog/${post.title}`}
+                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                  >
+                    Read More
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-  )
-}
+  );
+};
 
-export default LatestBlogPosts
+export default LatestBlogPosts;

@@ -1,21 +1,21 @@
 export const categories = [
     {
-        name:'Computers & Laptops',
+        name:'Computers',
         image:'/images/category/computer.png',
         link:''
     },
     {
-        name:'Smartphones & Mobile',
+        name:'Smartphones',
         image:'/images/category/phone.png',
         link:''
     },
     {
-        name:'TVs & Home Entertainment',
+        name:'Home Entertainment',
         image:'/images/category/tv.png',
         link:''
     },
     {
-        name:'Audio & Headphones',
+        name:'Headphones',
         image:'/images/category/headphone.png',
         link:''
     },

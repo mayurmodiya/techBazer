@@ -118,7 +118,7 @@ export const productsData = [
         ]
     },
     {
-        id:1,
+        id:6,
         name:'Apple iPhone 15 Pro Max (256 GB) - Blue Titanium',
         category:'Smartphones',
         description:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!',
@@ -142,7 +142,7 @@ export const productsData = [
         ]
     },
     {
-        id:2,
+        id:7,
         name:'Victus Powerfull Gaming Laptop',
         description:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!',
         category:'Computers',
@@ -165,7 +165,7 @@ export const productsData = [
         ]
     },
     {
-        id:3,
+        id:8,
         name:'pTron Newly Launched Tangent Impulse, Safebeats in Ear Wireless Headphones',
         category:'Accessories',
         description:'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Distinctio voluptatem aliquam reprehenderit debitis quidem accusantium quas reiciendis quae, enim nesciunt, illo sit ea aspernatur quo perferendis! Cumque fuga impedit corrupti!',

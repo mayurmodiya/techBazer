@@ -1,5 +1,5 @@
-import NewsLetter from '@/components/newsLetter/NewsLetter'
-import AboutPageOne from '@/components/pages/about-pages/AboutPageOne'
+
+import NewsLetterTwo from '@/components/newsLetter/NewsLetterTwo'
 import AboutPageTwo from '@/components/pages/about-pages/AboutPageTwo'
 import React from 'react'
 
@@ -8,7 +8,7 @@ const AboutPage = () => {
     <div>
         {/* <AboutPageOne /> */}
         <AboutPageTwo />
-        <NewsLetter />
+        <NewsLetterTwo />
     </div>
   )
 }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Search } from "lucide-react";
@@ -24,7 +24,15 @@ const SearchBox = () => {
 
     console.log(pathname, searchTerm);
     router.push(`http://localhost:3000/search?${params}`);
+    
   };
+
+
+  useEffect(() => {
+    if(pathname !== '/search'){
+      setSearchTerm('')
+    }
+  },[pathname])
 
   return (
     <form

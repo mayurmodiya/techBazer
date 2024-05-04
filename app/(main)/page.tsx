@@ -4,8 +4,8 @@ import HomePageTwo from "@/components/pages/home-pages/HomePageTwo";
 export default function Home() {
   return (
     <main>
-      {/* <HomePageOne /> */}
-      <HomePageTwo />
+      <HomePageOne />
+      {/* <HomePageTwo /> */}
     </main>
   );
 }

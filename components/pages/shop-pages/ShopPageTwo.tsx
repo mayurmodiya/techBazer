@@ -5,18 +5,21 @@ import React from "react";
 
 interface ShopPageTwoProps {
   searchParams: {
-    product_page: string;
+    page: string;
     category: string;
     brand: string;
     search: string;
+    min:string,
+    max:string,
+    color:string
   };
 }
 
 const ShopPageTwo = ({ searchParams }: ShopPageTwoProps) => {
   return (
-    <section className="p-4 lg:p-8">
-      <ShopPageContainer gridColumn={4} searchParams={searchParams} />
-      <LatestBlogPosts />
+    <section>
+      <ShopPageContainer showHomeBanner={true} gridColumn={4} searchParams={searchParams} />
+      <LatestBlogPosts twoColunmHeader={true} />
     </section>
   );
 };

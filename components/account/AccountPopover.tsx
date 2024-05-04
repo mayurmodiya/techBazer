@@ -17,7 +17,7 @@ const AccountPopover = () => {
    <div className="hidden md:block">
      <Popover>
       <PopoverTrigger>
-        <User size={25} className="hover:opacity-30 duration-200" />
+        <User size={25} className="hover:opacity-60 duration-200" />
       </PopoverTrigger>
       <PopoverContent>
         <ul className="space-y-4 text-center ">

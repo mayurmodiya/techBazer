@@ -1,32 +1,34 @@
+import ContactForm from '@/components/forms/ContactForm';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import React from 'react';
 
 const ContactPageTwo = () => {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-        <div className="px-6 py-8 md:px-10">
-          <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">Contact Us</h2>
-          <form>
-            <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+    <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 bg-slate-100 dark:bg-slate-900">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Contact Form */}
+          <ContactForm />
+        {/* Contact Information */}
+        <div className=" lg:col-span-1 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+          <div className="px-6 py-8 md:px-10">
+            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white mb-6">Contact Information</h2>
+            <div className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Your Name</label>
-                <input type="text" name="name" id="name" autoComplete="name" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 rounded-md" />
+                <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300">Address</h3>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">123 Main Street, City, Country</p>
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</label>
-                <input type="email" name="email" id="email" autoComplete="email" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 rounded-md" />
+                <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300">Phone</h3>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">+123 456 7890</p>
               </div>
-              <div className="sm:col-span-2">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">Message</label>
-                <textarea id="message" name="message" className="mt-1 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 dark:border-gray-600 rounded-md"></textarea>
+              <div>
+                <h3 className="text-lg font-medium text-gray-700 dark:text-gray-300">Email</h3>
+                <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">info@example.com</p>
               </div>
             </div>
-            <div className="mt-6">
-              <button type="submit" className="w-full flex items-center justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 text-base font-medium">
-                Send Message
-              </button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { Separator } from "../ui/separator";
 import { FaFacebook, FaTwitter } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa";
 import Link from 'next/link'
+import { categories } from "@/data/category/categoryData";
 
 const Footer = () => {
   return (
@@ -35,38 +36,16 @@ const Footer = () => {
         <div className="flex flex-col space-y-4">
           <h3 className="text-xl font-semibold">Categories</h3>
           <ul className="space-y-2">
-            <li>
+            {categories.map(category => (
+              <li key={category.link}>
               <Link
-                href="#"
+                href={`/shop?category=${category.link}`}
                 className=""
               >
-                Computers & Laptops
+                {category.name}
               </Link>
             </li>
-            <li>
-              <Link
-                href="#"
-                className=""
-              >
-               Smartphone & phones 
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className=""
-              >
-                Tv & Home Appliances
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="#"
-                className=""
-              >
-                Audio & Headphones
-              </Link>
-            </li>
+            ))}
           </ul>
         </div>
         <div className="flex flex-col space-y-4">
@@ -74,7 +53,7 @@ const Footer = () => {
           <ul className="space-y-2">
             <li>
               <Link
-                href="#"
+                href="/"
                 className=""
               >
                 Home
@@ -82,7 +61,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="#"
+                href="/about"
                 className=""
               >
                 About Us
@@ -90,7 +69,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="#"
+                href="/contact"
                 className=""
               >
                 Contact Us
@@ -98,7 +77,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="#"
+                href="/shop"
                 className=""
               >
                 Shop
@@ -111,7 +90,7 @@ const Footer = () => {
           <ul className="space-y-2">
             <li>
               <Link
-                href="#"
+                href="/help"
                 className=""
               >
                 Help Center
@@ -144,7 +123,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <Separator />
+      <hr className="w-full h-[2px] bg-white" />
       <div className="text-center mt-8">
         <p>&copy; 2024 Your Brand Name. All Rights Reserved.</p>
       </div>

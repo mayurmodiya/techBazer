@@ -55,7 +55,7 @@ const ProductQuickViewModal = () => {
             {product && (
               <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
                 {/* Product Gallery */}
-                <ProductGallery isInModal images={product.images} />
+                <ProductGallery isInModal={true} images={product.images} />
                 <div className="space-y-1">
                   {/* Category */}
                   <small className="bg-lime-500 py-1 px-4 rounded-full w-fit">

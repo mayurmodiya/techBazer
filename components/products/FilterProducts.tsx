@@ -141,7 +141,7 @@ const FilterProducts = () => {
             onChange={handleMaxPriceChange}
             type="range"
             min={5}
-            max={2000}
+            max={5000}
             value={maxValue}
           />
           <p className="text-center text-green-500 text-2xl">${maxValue}</p>

@@ -10,7 +10,7 @@ const ProductTab = ({ aboutItem = [], reviews = [] }: ProductTabsProps) => {
   return (
     <div>
       <Tabs defaultValue="aboutitem" className="w-full p-4">
-        <TabsList>
+        <TabsList className="bg-transparent ">
           <TabsTrigger value="aboutitem">About This Item</TabsTrigger>
           <TabsTrigger value="reviews">Reviews</TabsTrigger>
         </TabsList>

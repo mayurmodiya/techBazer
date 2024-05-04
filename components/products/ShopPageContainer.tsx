@@ -6,15 +6,19 @@ import Pagination from "../others/Pagination";
 import SingleProductListView from "@/components/product/SingleProductListView";
 import { Product, SearchParams } from "@/types";
 import SingleProductCartView from "../product/SingleProductCartView";
+import BreadcrumbComponent from "../others/Breadcrumb";
+import Link from "next/link";
 
 interface ShopPageContainerProps {
   searchParams: SearchParams;
   gridColumn?: number;
+  showHomeBanner: boolean;
 }
 
 const ShopPageContainer = ({
   searchParams,
   gridColumn,
+  showHomeBanner,
 }: ShopPageContainerProps) => {
   const [listView, setListView] = useState(false);
   const [filteredData, setFilteredData] = useState<Product[]>([]);
@@ -99,7 +103,14 @@ const ShopPageContainer = ({
   }
 
   return (
-    <div className="max-w-screen-2xl mx-auto overflow-hidden">
+    <div className="">
+      {showHomeBanner && (
+        <div className="p-6 w-full bg-gray-300 dark:bg-gray-800 text-3xl flex items-center justify-center gap-2">
+          <Link href={"/"}>Home</Link>
+          <p>/</p>
+          <Link href={"/shop"}>Shop</Link>
+        </div>
+      )}
       <ProductViewChange
         listView={listView}
         setListView={setListView}
@@ -109,7 +120,7 @@ const ShopPageContainer = ({
       />
 
       {listView === true && (
-        <div className="overflow-hidden p-4 gap-4 lg:gap-6">
+        <div className="max-w-screen-2xl mx-auto overflow-hidden p-4 md:px-8 gap-4 lg:gap-6">
           {paginatedData.map((product) => (
             <SingleProductListView key={product.id} {...product} />
           ))}
@@ -117,9 +128,9 @@ const ShopPageContainer = ({
       )}
       {listView === false && (
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${
+          className={`max-w-screen-2xl mx-auto overflow-hidden p-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${
             gridColumn || 3
-          } overflow-hidden p-2 lg:p-4 gap-4 lg:gap-6`}
+          } overflow-hidden  gap-4 lg:gap-6`}
         >
           {paginatedData.map((product) => (
             <SingleProductCartView key={product.id} {...product} />
