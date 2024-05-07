@@ -21,9 +21,9 @@ const BreadcrumbComponent = ({
         <BreadcrumbItem>
           <BreadcrumbLink href={"/"}>Home</BreadcrumbLink>
         </BreadcrumbItem>
-        <BreadcrumbSeparator />
         {links.map((link) => (
           <BreadcrumbItem key={link}>
+             <BreadcrumbSeparator />
             <BreadcrumbLink href={link}>{link.slice(1)}</BreadcrumbLink>
           </BreadcrumbItem>
         ))}

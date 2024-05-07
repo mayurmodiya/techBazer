@@ -1,14 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Separator } from "../ui/separator";
-import { categories } from "@/data/category/categoryData";
 import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
-import { brandsData } from "@/data/brands/drandsdata";
+import { brandsData } from "@/data/brands/brandsdata";
 import { Label } from "../ui/label";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Button } from "../ui/button";
 import { colors } from "@/data/products/productColor";
+import { dummyCategories } from "@/data/category/categoryData";
 
 const FilterProducts = () => {
   // State variables for filters
@@ -17,6 +17,7 @@ const FilterProducts = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
+
 
   // Access search params
   const searchParams = useSearchParams();
@@ -152,7 +153,7 @@ const FilterProducts = () => {
       <div>
         <h3 className="text-lg font-medium my-2">By Categories</h3>
         <div className="flex items-center justify-start gap-2 flex-wrap">
-          {categories.map((category) => (
+          {dummyCategories.map((category) => (
             <p
               onClick={() => handleCategorySelection(category.name)}
               className={cn(
@@ -160,7 +161,7 @@ const FilterProducts = () => {
                 category.name === selectedCategory &&
                   "bg-blue-400 dark:bg-blue-700"
               )}
-              key={category.name}
+              key={category.id}
             >
               {category.name}
             </p>

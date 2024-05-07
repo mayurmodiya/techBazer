@@ -13,11 +13,14 @@ const LatestBlogPosts = ({ twoColunmHeader }: { twoColunmHeader: boolean }) => {
             <h2 className="text-2xl md:text-5xl font-bold  text-gray-900 dark:text-white border-l-4 p-2 border-l-rose-500 ">
               Latest Blog Posts
             </h2>
-            <Button variant={"outline"} asChild>
-              <Link href={"/blog"}>
+             <Button 
+             variant={'outline'}
+             size={'sm'}
+             >
+             <Link href={"/blog"}>
                 Read More
               </Link>
-            </Button>
+             </Button>
           </div>
         ) : (
           <h2 className="text-2xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-12 border-b-4 border-b-rose-500 rounded-b-xl w-fit mx-auto p-2">
@@ -43,7 +46,7 @@ const LatestBlogPosts = ({ twoColunmHeader }: { twoColunmHeader: boolean }) => {
                   {post.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-2">
-                  By {post.author} | {post?.date?.toDateString() as Date}
+                  By {post.author} | {post?.date?.toISOString()}
                 </p>
                 <p className="text-gray-700 dark:text-gray-400">
                   {post.excerpt}

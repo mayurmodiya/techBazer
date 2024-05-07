@@ -1,4 +1,7 @@
+import AboutMe from '@/components/blog/AboutMe';
+import PopularPosts from '@/components/blog/PopularPosts';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 const BlogPageTwo = () => {
@@ -9,13 +12,6 @@ const BlogPageTwo = () => {
     // Add more blog posts as needed
   ];
 
-  // Sample popular posts data
-  const popularPosts = [
-    { id: 1, title: 'Popular Post 1', author: 'John Doe', date: 'April 15, 2024' },
-    { id: 2, title: 'Popular Post 2', author: 'Jane Smith', date: 'April 10, 2024' },
-    // Add more popular posts as needed
-  ];
-
   // Sample categories data
   const categories = ['Technology', 'Gadgets', 'Design', 'Fashion', 'Travel'];
   
@@ -23,7 +19,7 @@ const BlogPageTwo = () => {
   const tags = ['Tech', 'Gadgets', 'Design', 'Fashion', 'Travel'];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 grid grid-cols-1 md:grid-cols-2 gap-8">
       {/* Blogs Section */}
       <div className="grid grid-cols-1 gap-8">
         {blogPosts.map(post => (
@@ -36,7 +32,7 @@ const BlogPageTwo = () => {
               <p className="text-gray-600 dark:text-gray-300 text-sm mb-2">By {post.author} | {post.date}</p>
               <p className="text-gray-700 dark:text-gray-400">{post.excerpt}</p>
               <div className="flex items-center justify-between mt-4">
-                <a href="#" className="text-blue-600 dark:text-blue-400 hover:underline">Read More</a>
+                <Link href={`/blog/${post.title}`} className="text-blue-600 dark:text-blue-400 hover:underline">Read More</Link>
               </div>
             </div>
           </div>
@@ -46,28 +42,9 @@ const BlogPageTwo = () => {
       {/* Sidebar Section */}
       <div className="grid grid-cols-1 gap-8">
         {/* Popular Posts */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
-          <div className="p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Popular Posts</h2>
-            <ul className="space-y-4">
-              {popularPosts.map(post => (
-                <li key={post.id} className="flex items-center space-x-2">
-                  <span className="text-gray-600 dark:text-gray-300">{post.date}</span>
-                  <span className="text-gray-900 dark:text-white">{post.title}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
+        <PopularPosts />
         {/* About Me or Author Information */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
-          <div className="p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">About Me</h2>
-            <p className="text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget ipsum id neque laoreet tincidunt.</p>
-          </div>
-        </div>
-
+        <AboutMe />
         {/* Categories */}
         <div className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md">
           <div className="p-6">

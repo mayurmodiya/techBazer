@@ -1,49 +1,39 @@
+// change or modify the types as your requirement
 
 export type Product = {
-    id: number;
-    name: string;
-    category: string;
-    description: string;
-    aboutItem: string[];
-    price: number;
-    discount: number;
-    rating: number;
-    reviews: Record<any, string>[];
-    brand?:string,
-    color?:string,
-    stockItems:number
-    images: string[];
-  }
-
-
-
-export type SearchParams = {
-    page: string;
-    category: string;
-    brand: string;
-    search: string;
-    min: string;
-    max: string;
-    color: string;
-  };
-
-
-export interface CartItem {
-  id: number; 
-  name: string;
-  price: number;
-  quantity: number;
-  image?: string; 
-  color:string,
-  brand?:string,
-}
-
-
-export interface WishlistItem {
   id: number;
   name: string;
-  image?: string;
-  price:number,
-  color:string,
-  brand:string
-}
+  category: string;
+  description: string;
+  aboutItem: string[];
+  price: number;
+  discount: number;
+  rating: number;
+  reviews: Review[];
+  brand?: string;
+  color?: string[];
+  stockItems: number;
+  images: string[];
+};
+
+export type Review = {
+  author: string;
+  image: string;
+  content: string;
+  date: Date;
+};
+
+export type SearchParams = {
+  page: string;
+  category: string;
+  brand: string;
+  search: string;
+  min: string;
+  max: string;
+  color: string;
+};
+
+export type CartItem = Product & {
+  selectedColor: string;
+  quantity: number;
+};

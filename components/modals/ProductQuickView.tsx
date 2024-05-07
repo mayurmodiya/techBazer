@@ -7,10 +7,11 @@ import RatingReview from "../others/RatingReview";
 import ProductGallery from "../product/ProductGallery";
 import { useProductQuickViewStore } from "@/store/productQuickViewStore";
 import { Button } from "../ui/button";
-import { Minus, Plus, X } from "lucide-react";
+import { X } from "lucide-react";
 import ProductColorSelection from "../product/ProductColorSelection";
 import ProductQuantityChange from "../product/ProductQuantityChange";
 import ProductTab from "../product/ProductTab";
+import { calculateDiscount } from "@/lib/calculateDiscount";
 
 const ProductQuickViewModal = () => {
   const [selectedColor, setSelectedColor] = useState("");
@@ -68,48 +69,51 @@ const ProductQuickViewModal = () => {
                   {/* Rating and Review */}
                   <RatingReview
                     rating={product.rating || 0}
-                    review={product.reviews || 0}
+                    review={product.reviews.length || 0}
                   />
                   {/* Product Description */}
                   <ProductDescription description={product.description} />
 
                   {/* product colors */}
-                  <ProductColorSelection color={selectedColor} setColor={setSelectedColor} />
+                  <ProductColorSelection
+                    allColors={product.color!}
+                    color={selectedColor}
+                    setColor={setSelectedColor}
+                  />
 
                   <div className="flex items-center gap-6 !my-4">
-                   <div className="">
-                     {/* Original Price */}
-                     <p className="text-muted-foreground line-through">
-                      ${product.price}
-                    </p>
-                    {/* Discounted Price */}
-                    <p className="text-3xl font-bold text-green-500">
-                      $
-                      {(product.price / product.discount) *
-                        (product.discount - 1)}
-                    </p>
-                   </div>
-                   <ProductQuantityChange quantity={quantity} setQuantity={setQuantity}/>
+                    <div className="">
+                      {/* Original Price */}
+                      <p className="text-muted-foreground line-through">
+                        ${product.price}
+                      </p>
+                      {/* Discounted Price */}
+                      <p className="text-3xl font-bold text-green-500">
+                        ${calculateDiscount(product.price, product.discount)}
+                      </p>
+                    </div>
+                    <ProductQuantityChange
+                      quantity={quantity}
+                      setQuantity={setQuantity}
+                    />
                   </div>
-                  <div className="flex flex-col md:flex-row items-center gap-2" onClick={closeModal}>
+                  <div
+                    className="flex flex-col md:flex-row items-center gap-2"
+                    onClick={closeModal}
+                  >
                     {/* Add To Cart Button */}
                     <AddToCartBtn
-                      id={product.id}
-                      name={product.name}
-                      image={product.images[0]}
-                      price={product.price}
-                      quantity={1}
+                    product={{...product,quantity,selectedColor}}
                     />
                     {/* Buy Now Button */}
                     <BuyNowBtn
-                      id={product.id}
-                      name={product.name}
-                      image={product.images[0]}
-                      price={product.price}
-                      quantity={1}
+                    product={{...product,quantity,selectedColor}}
                     />
                   </div>
-                  <ProductTab aboutItem={product?.aboutItem!} />
+                  <ProductTab
+                    aboutItem={product?.aboutItem!}
+                    reviews={product.reviews}
+                  />
                 </div>
               </div>
             )}

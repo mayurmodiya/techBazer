@@ -28,7 +28,9 @@ const useCartStore = create<CartState>((set) => {
 
   return {
     cartItems: parsedCartItems,
+
     couponCode: null,
+    
     addToCart: (newItem: CartItem): void => {
       set((state) => {
         const existingItem = state.cartItems.find((item) => item.id === newItem.id);
@@ -37,17 +39,19 @@ const useCartStore = create<CartState>((set) => {
             ? state.cartItems.map((item) =>
                 item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item
               )
-            : [...state.cartItems, { ...newItem, quantity: 1 }],
+            : [...state.cartItems, { ...newItem}],
         };
       });
       localStorage.setItem(STORAGE_KEY, JSON.stringify(useCartStore.getState().cartItems));
     },
+
     removeFromCart: (itemId: number): void => {
       set((state) => ({
         cartItems: state.cartItems.filter((item) => item.id !== itemId),
       }));
       localStorage.setItem(STORAGE_KEY, JSON.stringify(useCartStore.getState().cartItems));
     },
+
     updateQuantity: (itemId: number, newQuantity: number): void => {
       set((state) => ({
         cartItems: state.cartItems.map((item) =>
@@ -56,13 +60,16 @@ const useCartStore = create<CartState>((set) => {
       }));
       localStorage.setItem(STORAGE_KEY, JSON.stringify(useCartStore.getState().cartItems));
     },
+
     clearCart: (): void => {
       set({ cartItems: [], couponCode: null });
       localStorage.setItem(STORAGE_KEY, JSON.stringify([]));
     },
+
     getTotalItems: (): number => {
       return useCartStore.getState().cartItems.reduce((acc, item) => acc + item.quantity, 0);
     },
+
     getTotalPrice: (): number => {
       let totalPrice = useCartStore
         .getState()
@@ -77,14 +84,17 @@ const useCartStore = create<CartState>((set) => {
 
       return totalPrice;
     },
+
     getTax: (): number => {
       // Calculate tax based on the total price (Example: 10% tax)
       return useCartStore.getState().getTotalPrice() * 0.1; // 10% tax
     },
+    
     getShippingFee: (): number => {
       // Calculate shipping fee based on the total price (Example: $5 flat rate)
       return 5; // $5 flat rate
     },
+
     getTotalAmount: (): number => {
       return (
         useCartStore.getState().getTotalPrice() +
@@ -92,9 +102,11 @@ const useCartStore = create<CartState>((set) => {
         useCartStore.getState().getShippingFee()
       );
     },
+
     applyCoupon: (code: string): void => {
       set({ couponCode: code });
     },
+    
     removeCoupon: (): void => {
       set({ couponCode: null });
     },

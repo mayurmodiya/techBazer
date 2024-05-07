@@ -3,7 +3,8 @@ import { Separator } from "../ui/separator";
 import { FaFacebook, FaTwitter } from "react-icons/fa6";
 import { FaInstagramSquare } from "react-icons/fa";
 import Link from 'next/link'
-import { categories } from "@/data/category/categoryData";
+import { dummyCategories } from "@/data/category/categoryData";
+
 
 const Footer = () => {
   return (
@@ -36,10 +37,10 @@ const Footer = () => {
         <div className="flex flex-col space-y-4">
           <h3 className="text-xl font-semibold">Categories</h3>
           <ul className="space-y-2">
-            {categories.map(category => (
-              <li key={category.link}>
+            {dummyCategories.map(category => (
+              <li key={category.name}>
               <Link
-                href={`/shop?category=${category.link}`}
+                href={`/shop?category=${category.name}`}
                 className=""
               >
                 {category.name}

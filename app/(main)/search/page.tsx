@@ -32,12 +32,12 @@ const SearchComponent = ({
       </div>
       <div className="hidden lg:grid grid-cols-1 gap-6">
         {foundProducts.map((product) => (
-          <SingleProductListView key={product.id} {...product}/>
+          <SingleProductListView key={product.id} product={product}/>
         ))}
       </div>
       <div className="grid lg:hidden grid-cols-1 md:grid-cols-3 gap-6">
         {foundProducts.map((product) => (
-          <SingleProductCartView key={product.id} {...product}/>
+          <SingleProductCartView key={product.id} product={product}/>
         ))}
       </div>
     </div>

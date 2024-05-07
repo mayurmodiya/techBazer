@@ -2,11 +2,8 @@
 import AddToCartBtn from "@/components/buttons/AddToCartBtn";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { cartData } from "@/data/cart/cartData";
-import useCartStore from "@/store/cartStore";
 import useWishlistStore from "@/store/wishlistStore";
-import { Item } from "@radix-ui/react-dropdown-menu";
-import { Cross, X } from "lucide-react";
+import { X } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -42,7 +39,7 @@ const WishlistPage = () => {
                 </div>
                 <div className="relative w-full h-48">
                   <Image
-                    src={cart.image as string}
+                    src={cart.images[0] as string}
                     alt="Product"
                     fill
                     className="w-full h-48 object-contain mb-4"
@@ -58,7 +55,7 @@ const WishlistPage = () => {
                   <p className="px-3 py-1 rounded-md border border-green-400 text-green-500 whitespace-nowrap">
                     Price: ${cart.price}
                   </p>
-                  <AddToCartBtn {...{...cart,quantity:1}}/>
+                  <AddToCartBtn product={{...cart,quantity:1,selectedColor:''}}/>
                 </div>
               </div>
             </div>

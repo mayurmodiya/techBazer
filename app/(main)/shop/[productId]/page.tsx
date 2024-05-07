@@ -1,18 +1,9 @@
-// Import necessary components and data
-import AddToCartBtn from "@/components/buttons/AddToCartBtn";
-import AddToWishlistBtn from "@/components/buttons/AddToWishlistBtn";
-import BuyNowBtn from "@/components/buttons/BuyNowBtn";
-import RatingReview from "@/components/others/RatingReview";
+
 import ProductGallery from "@/components/product/ProductGallery";
-import ProductTab from "@/components/product/ProductTab";
-import { Separator } from "@/components/ui/separator";
 import { productsData } from "@/data/products/productsData";
 import React from "react";
 import RelatedProducts from "@/components/products/RelatedProducts";
-import ProductDescription from "@/components/product/ProductDescription";
 import BreadcrumbComponent from "@/components/others/Breadcrumb";
-import ProductQuantityChange from "@/components/product/ProductQuantityChange";
-import ProductColorSelection from "@/components/product/ProductColorSelection";
 import ProductDetails from "@/components/product/ProductDetails";
 
 // Define the props interface for the component
@@ -45,7 +36,7 @@ const ProductIdPage = ({ params }: ProductIdPageProps) => {
         {/* Product Gallery */}
         <ProductGallery isInModal={false} images={product?.images!} />
         {/* product details */}
-        <ProductDetails {...product!}/>
+        <ProductDetails product={product!}/>
       </div>
       {/* Related Products */}
       <RelatedProducts products={relatedProducts} />

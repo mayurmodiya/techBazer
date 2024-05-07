@@ -25,7 +25,7 @@ const ProductViewChange = ({
   currentPage,
 }: ProductViewChangeProps) => {
   return (
-    <div className="max-w-screen-2xl mx-auto py-4 md:px-8 md:-mb-4 flex flex-wrap items-center gap-2 md:gap-4 px-4 ">
+    <div className="max-w-screen-2xl mx-auto py-4  md:-mb-4 flex flex-wrap items-center gap-2 md:gap-4 px-4 lg:px-0 ">
       <div className="mr-auto">
         <p className=" text-base md:text-lg  font-medium capitalize text-muted-foreground  select-none">
           {`showing ${((currentPage - 1) * itemPerPage) + 1}-${

@@ -1,19 +1,19 @@
 'use client'
 import React from "react";
 import { Button } from "../ui/button";
-import { WishlistItem } from "@/types";
+import { Product,} from "@/types";
 import useWishlistStore from "@/store/wishlistStore";
 import { showToast } from "@/lib/showToast";
 
-const AddToWishlistBtn = (item:WishlistItem) => {
+const AddToWishlistBtn = ({product}:{product:Product}) => {
   const {addToWishlist,isInWishlist} = useWishlistStore()
 
   const handleAddToWishList = () => {
-    if(isInWishlist(item.id)){
-      showToast('Item Already Exist In Wishlist',item.image as string, item.name)
+    if(isInWishlist(product.id)){
+      showToast('Item Already Exist In Wishlist',product.images[0] as string, product.name)
     }else{
-      addToWishlist(item);
-    showToast('Item Added To The Wishlist',item.image as string, item.name)
+      addToWishlist(product);
+    showToast('Item Added To The Wishlist',product.images[0] as string, product.name)
     }
   }
 

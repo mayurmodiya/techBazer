@@ -3,33 +3,25 @@ import React from "react";
 import RatingReview from "../others/RatingReview";
 import Link from "next/link";
 import Image from "next/image";
-import ProductOptions from "./ProductOptions";
 import AddToWishlistBtn from "../buttons/AddToWishlistBtn";
 import AddToCartBtn from "../buttons/AddToCartBtn";
+import { Product } from "@/types";
+import { calculateDiscount } from "@/lib/calculateDiscount";
 
-interface SingleProductListViewProps {
-  id: number;
-  name: string;
-  aboutItem: string[];
-  price: number;
-  rating: number;
-  reviews: number;
-  category: string;
-  discount: number;
-  images: string[];
-}
+const SingleProductListView = ({product}:{product:Product}) => {
+  const {
+    category,
+    discount,
+    id,
+    images,
+    name,
+    price,
+    rating,
+    reviews,
+  } = product;
 
-const SingleProductListView = ({
-  aboutItem,
-  category,
-  discount,
-  id,
-  images,
-  name,
-  price,
-  rating,
-  reviews,
-}: SingleProductListViewProps) => {
+  const discountPrice = calculateDiscount(price, discount);
+
   return (
     <Link
       href={`/shop/${id}`}
@@ -46,11 +38,11 @@ const SingleProductListView = ({
             {name.length > 45 && "..."}
           </h3>
         </div>
-        <RatingReview rating={rating} review={reviews} />
+        <RatingReview rating={rating} review={reviews.length} />
         <div className="text-lg font-bold space-x-2 my-4 ">
           <span className="line-through text-muted-foreground">${price}</span>
           <span className="text-xl font-bold text-green-500">
-            ${(price / discount) * (discount - 1)}
+            ${discountPrice}
           </span>
         </div>
         <div className=" text-sm">
@@ -63,9 +55,9 @@ const SingleProductListView = ({
           className="flex flex-col md:flex-row mt-4 items-center gap-2 w-96 ml-auto justify-end"
           onClick={(e) => e.preventDefault()}
         >
-          <AddToWishlistBtn {...{ id, name, price, image: images[0] }} />
+          <AddToWishlistBtn product={product} />
           <AddToCartBtn
-            {...{ id, name, image: images[0], price, quantity: 0 }}
+            product={{ ...product, quantity: 1, selectedColor: "" }}
           />
         </div>
       </div>

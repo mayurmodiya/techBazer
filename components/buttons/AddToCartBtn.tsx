@@ -8,13 +8,13 @@ import { showToast } from "@/lib/showToast";
 import { CartItem } from "@/types";
 
 
-const AddToCartBtn = (item:CartItem) => {
+const AddToCartBtn = ({product}:{product:CartItem}) => {
   const {addToCart} = useCartStore()
 
 
   const handleAddToCart = () => {
-    addToCart(item)
-    showToast('Item Added To The Cart', item.image as string,item.name)
+    addToCart(product)
+    showToast('Item Added To The Cart', product.images[0] as string,product.name)
 
   }
 

@@ -32,7 +32,7 @@ const ProductGallery = ({ images, isInModal }: ProductGalleryProps) => {
           fill
         />
       </div>
-      <div className="flex items-center gap-2 p-2 overflow-auto hide-scrollbar">
+      <div className="flex items-center gap-2 p-2 overflow-auto hide-scrollbar mt-2">
         {images.map((image) => (
           <Image
             onClick={() => handleImageSelection(image)}

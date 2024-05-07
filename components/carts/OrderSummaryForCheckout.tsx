@@ -24,7 +24,7 @@ const OrderSummaryForCheckout = () => {
         </h2>
         <div className="flex justify-between mb-4">
           <span className="text-gray-700 dark:text-gray-300">Subtotal:</span>
-          <span className="text-gray-900 dark:text-white">${getTotalAmount()}</span>
+          <span className="text-gray-900 dark:text-white">${getTotalPrice()}</span>
         </div>
         <div className="flex justify-between mb-4">
           <span className="text-gray-700 dark:text-gray-300">Shipping:</span>

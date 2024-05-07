@@ -11,29 +11,28 @@ import useCartStore from "@/store/cartStore";
 import useWishlistStore from "@/store/wishlistStore";
 import { showToast } from "@/lib/showToast";
 import { Product } from "@/types";
-import QuickViewBtn from "../buttons/QuickViewBtn";
 import { useProductQuickViewStore } from "@/store/productQuickViewStore";
 
-const ProductOptions = (product: Product) => {
-  const {openModal} = useProductQuickViewStore()
-  const { id, images, name, price } = product;
+const ProductOptions = ({ product }: { product: Product }) => {
+  const { openModal } = useProductQuickViewStore();
+  const { images, name } = product;
 
   const { addToCart } = useCartStore();
   const { addToWishlist } = useWishlistStore();
 
   const handleAddToCart = () => {
-    addToCart({ id, image: images[0], name, price, quantity: 1 });
+    addToCart({ ...product, quantity: 1, selectedColor: "" });
     showToast("Item Added To Cart", images[0], name);
   };
 
   const handleAddToWishList = () => {
-    addToWishlist({ id, name, image: images[0], price });
+    addToWishlist(product);
     showToast("Item Added To Wishlist", images[0], name);
   };
 
   const handleProductQuickView = () => {
     openModal(product);
-  }
+  };
 
   return (
     <div
@@ -44,8 +43,8 @@ const ProductOptions = (product: Product) => {
         <Tooltip>
           <TooltipTrigger>
             <Button
-              onClick={handleAddToWishList}
               variant={"outline"}
+              onClick={handleAddToWishList}
               className="p-2 rounded-lg mr-1"
             >
               <Heart />
@@ -57,7 +56,11 @@ const ProductOptions = (product: Product) => {
         </Tooltip>
         <Tooltip>
           <TooltipTrigger>
-            <Button onClick={handleProductQuickView} variant={"outline"} className="p-2 rounded-lg mr-1">
+            <Button
+              onClick={handleProductQuickView}
+              variant={"outline"}
+              className="p-2 rounded-lg mr-1"
+            >
               <Eye />
             </Button>
           </TooltipTrigger>

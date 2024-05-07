@@ -1,113 +1,130 @@
+'use client'
 import React from "react";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
-const CheckoutForm = () => {
+// Defined Zod schema for form validation
+const schema = z.object({
+  firstName: z.string().min(3, "First Name is required"),
+  lastName: z.string().min(3, "Last Name is required"),
+  address: z.string().min(5, "Address is required"),
+  phone: z.string().min(8, "Phone is required"),
+  city: z.string().min(3, "City is required"),
+  zip: z.string().min(5, "ZIP Code is required"),
+  country: z.string().min(2, "Country is required"),
+});
+
+// Defined types for form data
+type FormData = z.infer<typeof schema>;
+
+const CheckoutForm: React.FC = () => {
+  // Initialize React Hook Form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    resolver: zodResolver(schema),
+  });
+
+  // Handle form submission
+  const onSubmit: SubmitHandler<FormData> = (data) => {
+    console.log(data);
+  };
+
   return (
     <div>
-      <form className="space-y-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div>
-            <Label
-              htmlFor="firstName"
-              className="block text-gray-700 dark:text-gray-300 mb-2"
-            >
-              First Name
-            </Label>
+            <Label htmlFor="firstName">First Name</Label>
             <Input
-              type="text"
               id="firstName"
+              {...register("firstName")}
               className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-6 focus:outline-none"
             />
+            {errors.firstName && (
+              <span className="text-red-500">{errors.firstName.message}</span>
+            )}
           </div>
           <div>
-            <Label
-              htmlFor="lastName"
-              className="block text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Last Name
-            </Label>
+            <Label htmlFor="lastName">Last Name</Label>
             <Input
-              type="text"
               id="lastName"
+              {...register("lastName")}
               className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-6 focus:outline-none"
             />
+            {errors.lastName && (
+              <span className="text-red-500">{errors.lastName.message}</span>
+            )}
           </div>
         </div>
         <div>
-          <Label
-            htmlFor="address"
-            className="block text-gray-700 dark:text-gray-300 mb-2"
-          >
-            Address
-          </Label>
+          <Label htmlFor="address">Address</Label>
           <Input
-            type="text"
             id="address"
+            {...register("address")}
             className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-6 focus:outline-none"
           />
+          {errors.address && (
+            <span className="text-red-500">{errors.address.message}</span>
+          )}
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div>
-            <Label
-              htmlFor="phone"
-              className="block text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Phone
-            </Label>
+            <Label htmlFor="phone">Phone</Label>
             <Input
               type="tel"
               id="phone"
+              {...register("phone")}
               className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-6 focus:outline-none"
             />
+            {errors.phone && (
+              <span className="text-red-500">{errors.phone.message}</span>
+            )}
           </div>
           <div>
-            <Label
-              htmlFor="city"
-              className="block text-gray-700 dark:text-gray-300 mb-2"
-            >
-              City
-            </Label>
+            <Label htmlFor="city">City</Label>
             <Input
-              type="text"
               id="city"
+              {...register("city")}
               className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-6 focus:outline-none"
             />
+            {errors.city && (
+              <span className="text-red-500">{errors.city.message}</span>
+            )}
           </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <div>
-            <Label
-              htmlFor="zip"
-              className="block text-gray-700 dark:text-gray-300 mb-2"
-            >
-              ZIP Code
-            </Label>
+            <Label htmlFor="zip">ZIP Code</Label>
             <Input
-              type="text"
               id="zip"
+              {...register("zip")}
               className="w-full border border-gray-300 dark:border-gray-700 rounded-lg p-6 focus:outline-none"
             />
+            {errors.zip && (
+              <span className="text-red-500">{errors.zip.message}</span>
+            )}
           </div>
           <div>
-            <Label
-              htmlFor="country"
-              className="block text-gray-700 dark:text-gray-300 mb-2"
-            >
-              Country
-            </Label>
+            <Label htmlFor="country">Country</Label>
             <Input
-              type="text"
               id="country"
+              {...register("country")}
               className="w-full p-6 border border-gray-300 dark:border-gray-700 rounded-lg  focus:outline-none"
             />
+            {errors.country && (
+              <span className="text-red-500">{errors.country.message}</span>
+            )}
           </div>
         </div>
         <div className="flex items-center justify-end">
-          <Button size={"lg"} type="submit">
-            Save
-          </Button>
+          <Button type="submit">Save</Button>
         </div>
       </form>
     </div>

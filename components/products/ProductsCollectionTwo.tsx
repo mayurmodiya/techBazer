@@ -28,21 +28,21 @@ const ProductsCollectionTwo = () => {
         <TabsContent value="new-arrivals" className="w-full">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
             {data.map((product) => {
-              return <SingleProductCartView key={product.id} {...product} />;
+              return <SingleProductCartView key={product.id} product={product} />;
             })}
           </div>
         </TabsContent>
         <TabsContent value="best-sellers">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {data.map((product) => {
-              return <SingleProductCartView key={product.id} {...product} />;
+              return <SingleProductCartView key={product.id} product={product} />;
             })}
           </div>
         </TabsContent>
         <TabsContent value="feauted">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {data.map((product) => {
-              return <SingleProductCartView key={product.id} {...product} />;
+              return <SingleProductCartView key={product.id} product={product} />;
             })}
           </div>
         </TabsContent>

@@ -7,9 +7,9 @@ const ProductDescription = ({ description }: { description: string }) => {
   return (
     <div>
       <p>
-        {showMore ? description : description.slice(0, 200)}{" "}
-        {description.length > 200 && !showMore && "..."}{" "}
-        {description.length > 200 && (
+        {showMore ? description : description?.slice(0, 200)}{" "}
+        {description?.length > 200 && !showMore && "..."}{" "}
+        {description?.length > 200 && (
           <span
             className="text-sky-500 m-2 cursor-pointer hover:underline"
             onClick={() => setShowMore(!showMore)}

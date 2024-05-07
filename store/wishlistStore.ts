@@ -3,8 +3,8 @@ import { Product, WishlistItem } from '@/types';
 import { create } from 'zustand';
 
 interface WishlistState {
-  wishlistItems: WishlistItem[];
-  addToWishlist: (newItem: WishlistItem) => void;
+  wishlistItems: Product[];
+  addToWishlist: (newItem: Product) => void;
   removeFromWishlist: (itemId: number) => void;
   isInWishlist: (itemId: number) => boolean;
 }
@@ -15,11 +15,11 @@ const useWishlistStore = create<WishlistState>((set, get) => {
 
   // Load wishlist items from localStorage on initialization
   const initialWishlistItems = isLocalStorageAvailable && localStorage.getItem('wishlist-items');
-  const parsedWishlistItems: WishlistItem[] = initialWishlistItems ? JSON.parse(initialWishlistItems) : [];
+  const parsedWishlistItems: Product[] = initialWishlistItems ? JSON.parse(initialWishlistItems) : [];
 
   return {
     wishlistItems: parsedWishlistItems,
-    addToWishlist: (newItem: WishlistItem) => {
+    addToWishlist: (newItem: Product) => {
       set((state) => {
         const existingItem = state.wishlistItems.find((item) => item.id === newItem.id);
         return {

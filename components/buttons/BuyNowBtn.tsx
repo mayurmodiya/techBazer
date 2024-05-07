@@ -2,16 +2,16 @@
 import React from 'react'
 import { Button } from '../ui/button'
 import { ArrowRight } from 'lucide-react'
-import { CartItem, Product } from '@/types'
+import { CartItem } from '@/types'
 import useCartStore from '@/store/cartStore'
 import { useRouter } from 'next/navigation'
 
-const BuyNowBtn = (item:CartItem) => {
+const BuyNowBtn = ({product}:{product:CartItem}) => {
   const {addToCart} = useCartStore()
   const router = useRouter()
 
   const handleBuyNow = () => {
-    addToCart(item)
+    addToCart(product)
     router.push('/checkout')
   }
 

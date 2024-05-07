@@ -1,5 +1,5 @@
 "use client";
-import { Delete, ShoppingBag, Trash, X } from "lucide-react";
+import {ShoppingBag, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 import {
@@ -12,7 +12,6 @@ import {
 } from "@/components/ui/sheet";
 
 import { Separator } from "../ui/separator";
-import { cartData } from "@/data/cart/cartData";
 import Image from "next/image";
 import ViewCart from "../buttons/ViewCart";
 import CheckoutBtn from "../buttons/CheckoutBtn";
@@ -28,7 +27,7 @@ const Cart = () => {
 
   const handleRovomeItemFromCart = (item: CartItem) => {
     removeFromCart(item.id);
-    showToast("Item Removed from Cart", item?.image as string, item.name);
+    showToast("Item Removed from Cart", item?.images[0] as string, item.name);
   };
 
   useEffect(() => {
@@ -67,19 +66,19 @@ const Cart = () => {
                 {cartItems.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center justify-between gap-2 p-2
+                    className="flex items-center justify-start gap-2 p-2
                       mt-2 border-b-2 border-t-gray-500"
                   >
                     <Image
                       className="rounded-full object-contain"
-                      src={item.image || ""}
+                      src={item?.images && item?.images[0]}
                       alt="product iamge"
                       width={70}
                       height={70}
                     />
                     <div className="space-y-2">
                       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-                        <h2 className="">{item.name}</h2>
+                        <h2>{item.name}</h2>
                       </div>
 
                       <div className="flex items-center justify-between">
@@ -103,8 +102,8 @@ const Cart = () => {
 
               {/* subtotal and buttons here */}
               <div className="w-full">
-                <div className="flex items-center justify-between gap-2 space-y-4">
-                  <h3 className="text-xl font-semibold">Your Subtotal :</h3>
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="text-xl text-center font-semibold">Your Subtotal :</h3>
                   <p className="text-xl text-center font-bold text-green-500">
                     $ {getTotalPrice()}
                   </p>
@@ -112,7 +111,7 @@ const Cart = () => {
 
                 <Separator />
                 <div
-                  className="flex flex-col items-center mt-2"
+                  className="flex flex-col items-center !my-2"
                   onClick={() => setShowSheet(false)}
                 >
                   <ViewCart />
