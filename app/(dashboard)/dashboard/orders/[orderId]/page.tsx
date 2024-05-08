@@ -1,10 +1,8 @@
-
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import React from "react";
 
 const OrderDetails = () => {
-
   // get order data based on orderId from the params here
   const order = {
     orderNumber: "ORD123456",
@@ -39,7 +37,7 @@ const OrderDetails = () => {
         Order Details
       </h2>
 
-      <Separator className="dark:bg-gray-500"/>
+      <Separator className="dark:bg-gray-500" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">

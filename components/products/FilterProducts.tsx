@@ -18,7 +18,6 @@ const FilterProducts = () => {
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
 
-
   // Access search params
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -54,23 +53,21 @@ const FilterProducts = () => {
   const handleMinPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newMinValue = Number(event.target.value);
     setMinValue(newMinValue);
-    setMinAndMaxPrice(newMinValue, maxValue); // Update min and max price
+    setMinAndMaxPrice(newMinValue, maxValue);
   };
 
   // Update max price with correct value
   const handleMaxPriceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newMaxValue = Number(event.target.value);
     setMaxValue(newMaxValue);
-    setMinAndMaxPrice(minValue, newMaxValue); // Update min and max price
+    setMinAndMaxPrice(minValue, newMaxValue);
   };
 
   // Update search params with correct price range
   const setMinAndMaxPrice = (minPrice: number, maxPrice: number) => {
-    // Ensure min is always less than or equal to max
     const min = Math.min(minPrice, maxPrice);
     const max = Math.max(minPrice, maxPrice);
 
-    // Update search params with the corrected price range
     const newSearchParams = new URLSearchParams(searchParams);
     newSearchParams.set("min", `${min}`);
     newSearchParams.set("max", `${max}`);
@@ -82,7 +79,7 @@ const FilterProducts = () => {
     if (color === selectedColor) {
       newSearchParams.delete("color");
     } else {
-      newSearchParams.set("color", color.split('-')[0]);
+      newSearchParams.set("color", color.split("-")[0]);
     }
     setSelectedColor(color);
     router.push(`${pathname}?${newSearchParams}`);
@@ -99,12 +96,9 @@ const FilterProducts = () => {
     router.push(`${pathname}?${newSearchParams}`);
   };
 
-
-
   const clearFilter = () => {
-   router.push(`${pathname}?page=1`);
-  }
-
+    router.push(`${pathname}?page=1`);
+  };
 
   return (
     <aside className="w-72 p-2 space-y-4 ">
@@ -182,7 +176,10 @@ const FilterProducts = () => {
               )}
               key={color}
             >
-              <span className={`w-6 h-6 rounded-full border opacity-80`} style={{backgroundColor:color}} />
+              <span
+                className={`w-6 h-6 rounded-full border opacity-80`}
+                style={{ backgroundColor: color }}
+              />
               {color.split("-")[0]}
             </p>
           ))}
@@ -208,7 +205,9 @@ const FilterProducts = () => {
         </div>
       </div>
       <div>
-        <Button onClick={clearFilter} variant={'outline'} className="w-full">Clear Filter</Button>
+        <Button onClick={clearFilter} variant={"outline"} className="w-full">
+          Clear Filter
+        </Button>
       </div>
     </aside>
   );

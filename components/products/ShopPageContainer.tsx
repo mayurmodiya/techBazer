@@ -74,6 +74,7 @@ const ShopPageContainer = ({
     setFilteredData(filteredProducts!);
     setCurrentPage(1); // Reset pagination to first page when filters change
     setLoading(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   // change currentPage when searchparams page change
