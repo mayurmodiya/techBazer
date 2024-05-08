@@ -1,4 +1,3 @@
-
 import HeaderOne from "@/components/headers/HeaderOne";
 import Footer from "@/components/footers/Footer";
 import ScrollToTop from "@/components/others/ScrollToTop";
