@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import RatingReview from "../others/RatingReview";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,6 +8,7 @@ import { Product } from "@/types";
 import { calculateDiscount } from "@/lib/calculateDiscount";
 
 const SingleProductCartView = ({product}: {product:Product}) => {
+  const [isMounted, setIsMounted] = useState(false);
   
   const {
     category,
@@ -23,6 +24,15 @@ const SingleProductCartView = ({product}: {product:Product}) => {
 
   // Calculate discounted price
   const discountedPrice = calculateDiscount(price, discount);
+
+  useEffect(() => {
+    setIsMounted(true)
+  },[])
+
+
+  if(!isMounted){
+    return null
+  }
 
   return (
     <Link
@@ -43,7 +53,7 @@ const SingleProductCartView = ({product}: {product:Product}) => {
           )}
         </div>
       </div>
-      <div className="hidden group-hover:block slideCartOptions absolute top-16 right-3">
+      <div className="hidden group-hover:block slideCartOptions absolute top-16 right-2">
         <ProductOptions product={product} />
       </div>
       <div className="my-2 space-y-1 p-4">

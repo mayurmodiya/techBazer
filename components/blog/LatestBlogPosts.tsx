@@ -5,6 +5,10 @@ import React from "react";
 import { Button } from "../ui/button";
 
 const LatestBlogPosts = ({ twoColunmHeader }: { twoColunmHeader: boolean }) => {
+
+  
+  // get latest blogs data from server here
+
   return (
     <div className="py-16 bg-gray-300 dark:bg-gray-950">
       <div className="max-w-screen-2xl mx-auto px-4 md:px-8">

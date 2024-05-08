@@ -10,7 +10,7 @@ import React from "react";
 
 const HomePageTwo = () => {
   return (
-    <div>
+    <div className="overflow-hidden">
       <HeroBannerTwo />
       <CategorySectionOne />
       <ProductsCollectionTwo />

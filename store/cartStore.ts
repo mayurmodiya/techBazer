@@ -18,9 +18,12 @@ interface CartState {
   removeCoupon: () => void;
 }
 
+
+
 const STORAGE_KEY = "cart-items";
 
 const useCartStore = create<CartState>((set) => {
+  
   const isLocalStorageAvailable = typeof window !== "undefined" && window.localStorage;
 
   const initialCartItems = isLocalStorageAvailable && localStorage.getItem(STORAGE_KEY);

@@ -10,10 +10,7 @@ const ProductsCollectionTwo = () => {
 
   return (
     <section className="max-w-screen-2xl mx-auto py-16 px-4 md:px-8 w-full">
-      <Tabs
-        defaultValue="new-arrivals"
-        className="w-full space-y-8 mx-0"
-      >
+      <Tabs defaultValue="new-arrivals" className="w-full space-y-8 mx-0">
         <TabsList className="font-semibold bg-transparent w-full text-center">
           <TabsTrigger value="new-arrivals" className="md:text-xl">
             New Arrivals
@@ -27,22 +24,28 @@ const ProductsCollectionTwo = () => {
         </TabsList>
         <TabsContent value="new-arrivals" className="w-full">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
-            {data.map((product) => {
-              return <SingleProductCartView key={product.id} product={product} />;
+            {data?.slice(0, 8)?.map((product) => {
+              return (
+                <SingleProductCartView key={product.id} product={product} />
+              );
             })}
           </div>
         </TabsContent>
         <TabsContent value="best-sellers">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {data.map((product) => {
-              return <SingleProductCartView key={product.id} product={product} />;
+            {data?.slice(0, 8)?.map((product) => {
+              return (
+                <SingleProductCartView key={product.id} product={product} />
+              );
             })}
           </div>
         </TabsContent>
         <TabsContent value="feauted">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {data.map((product) => {
-              return <SingleProductCartView key={product.id} product={product} />;
+            {data?.slice(0, 8)?.map((product) => {
+              return (
+                <SingleProductCartView key={product.id} product={product} />
+              );
             })}
           </div>
         </TabsContent>

@@ -1,8 +1,18 @@
+'use client';
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem
+} from "@/components/ui/carousel";
+import { testinomials } from "@/data/testimonials/testimonialData";
+import Autoplay from "embla-carousel-autoplay"
 
 const TestimonialsSection = ({ textCenter }: { textCenter: boolean }) => {
+
+  
   return (
     <div className="py-16 bg-gray-200 dark:bg-gray-800">
       <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
@@ -16,38 +26,48 @@ const TestimonialsSection = ({ textCenter }: { textCenter: boolean }) => {
         >
           Our Customer Testimonials
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-auto">
-          {/* Testimonial Card */}
-          <div className="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg">
-            <div className="p-6">
-              <p className="text-gray-700 dark:text-gray-300 mb-4 ">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac
-                orci ac lorem accumsan tristique. Nullam ac tortor a sem tempor
-                faucibus id quis ipsum.
-              </p>
-              <div className="flex items-center mb-4">
-                <Image
-                  src={"/images/people/group-image.avif"}
-                  alt="User"
-                  width={48}
-                  height={48}
-                  className="w-12 h-12 rounded-full mr-4"
-                />
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    John Doe
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300">
-                    CEO, Company Inc.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Carousel 
+             plugins={[
+              Autoplay({
+                delay: 2000,
+              }),
+            ]}
+          >
+            <CarouselContent className="space-x-4">
+              {testinomials.map((testi) => (
+                <CarouselItem key={testi.id} className="md:basis-1/3 pl-2 md:pl-4">
+                  <div className="bg-white dark:bg-gray-700 rounded-lg overflow-hidden shadow-lg">
+                      <div key={testi.id} className="p-6">
+                        <p className="text-gray-700 dark:text-gray-300 mb-4 ">
+                          {testi.content}
+                        </p>
+                        <div className="flex items-center mb-4">
+                          <Image
+                            src={testi.image}
+                            alt="User"
+                            width={48}
+                            height={48}
+                            className="w-12 h-12 rounded-full mr-4 object-cover"
+                          />
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                              {testi.name}
+                            </h3>
+                            <p className="text-gray-700 dark:text-gray-300">
+                              {testi.designation}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+
           {/* Repeat for more testimonials */}
         </div>
       </div>
-    </div>
   );
 };
 

@@ -4,11 +4,14 @@ import React from "react";
 import { Button } from "../ui/button";
 
 function HeroBannerTwo() {
+
+  // get banner data to from server then display here
+
   return (
     <section className=" bg-gradient-to-r from-gray-500 to-gray-800 text-white">
-      <div className="max-w-screen-2xl mx-auto relative overflow-hidden py-16 ">
+      <div className="max-w-screen-2xl mx-auto relative overflow-hidden py-16">
         {/* Animated Sparkles */}
-        <div className="absolute right-20 top-10 flex items-center justify-center pointer-events-none">
+        <div className="absolute right-48 top-28 flex items-center justify-center pointer-events-none">
           <div className="absolute w-64 h-64 bg-yellow-400 rounded-full animate-blob1"></div>
           <div className="absolute w-64 h-64 bg-red-400 rounded-full animate-blob2"></div>
           <div className="absolute w-64 h-64 bg-blue-400 rounded-full animate-blob3"></div>
@@ -29,12 +32,12 @@ function HeroBannerTwo() {
                 </Button>
               </div>
             </div>
-            <div className="relative h-[20rem] md:h-[30rem] w-full  lg:mt-0">
+            <div className="relative h-[20rem] md:h-[30rem] w-full lg:mt-0">
               <Image
-                src={"/images/banner/gaming-laptop.png"}
+                src={"/images/products/peco-m6-removebg-preview.png"}
                 alt="Tech Gadgets"
                 fill
-                className="w-full rounded-lg  object-contain"
+                className="w-full rounded-lg object-contain"
               />
             </div>
           </div>

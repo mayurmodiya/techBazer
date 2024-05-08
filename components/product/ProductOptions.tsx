@@ -1,6 +1,6 @@
+"use client";
 import { Eye, Heart, ShoppingBag } from "lucide-react";
-import React from "react";
-import { Button } from "../ui/button";
+import React, { useEffect, useState } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -12,13 +12,27 @@ import useWishlistStore from "@/store/wishlistStore";
 import { showToast } from "@/lib/showToast";
 import { Product } from "@/types";
 import { useProductQuickViewStore } from "@/store/productQuickViewStore";
+import Loader from "../others/Loader";
 
 const ProductOptions = ({ product }: { product: Product }) => {
+  const [isMounted, setIsMounted] = useState(false)
   const { openModal } = useProductQuickViewStore();
   const { images, name } = product;
 
   const { addToCart } = useCartStore();
   const { addToWishlist } = useWishlistStore();
+
+  
+
+  useEffect(() => {
+    setIsMounted(true)
+  },[])
+
+  
+  if(!isMounted){
+    return <Loader />
+  }
+
 
   const handleAddToCart = () => {
     addToCart({ ...product, quantity: 1, selectedColor: "" });
@@ -42,13 +56,9 @@ const ProductOptions = ({ product }: { product: Product }) => {
       <TooltipProvider delayDuration={0}>
         <Tooltip>
           <TooltipTrigger>
-            <Button
-              variant={"outline"}
-              onClick={handleAddToWishList}
-              className="p-2 rounded-lg mr-1"
-            >
+            <div onClick={handleAddToWishList} className="p-2 rounded-lg mr-1 bg-slate-900 text-white">
               <Heart />
-            </Button>
+            </div>
           </TooltipTrigger>
           <TooltipContent>
             <p>Add To Wishlist</p>
@@ -56,13 +66,12 @@ const ProductOptions = ({ product }: { product: Product }) => {
         </Tooltip>
         <Tooltip>
           <TooltipTrigger>
-            <Button
+            <div
               onClick={handleProductQuickView}
-              variant={"outline"}
-              className="p-2 rounded-lg mr-1"
+              className="p-2 rounded-lg mr-1 bg-slate-900 text-white"
             >
               <Eye />
-            </Button>
+            </div>
           </TooltipTrigger>
           <TooltipContent>
             <p>Quick View</p>
@@ -70,13 +79,9 @@ const ProductOptions = ({ product }: { product: Product }) => {
         </Tooltip>
         <Tooltip>
           <TooltipTrigger>
-            <Button
-              onClick={handleAddToCart}
-              variant={"outline"}
-              className="p-2 rounded-lg mr-1"
-            >
+            <div onClick={handleAddToCart} className="p-2 rounded-lg mr-1 bg-slate-900 text-white">
               <ShoppingBag />
-            </Button>
+            </div>
           </TooltipTrigger>
           <TooltipContent>
             <p>Add To Cart</p>

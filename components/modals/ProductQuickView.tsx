@@ -54,10 +54,10 @@ const ProductQuickViewModal = () => {
           </div>
           <div className="bg-white dark:bg-slate-800 p-4 lg:p-8 rounded-lg shadow-lg h-[95%] w-[90%] lg:w-[80%] lg:h-[90%] overflow-auto hide-scrollbar">
             {product && (
-              <div className="flex flex-col lg:flex-row gap-4 lg:gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 {/* Product Gallery */}
                 <ProductGallery isInModal={true} images={product.images} />
-                <div className="space-y-1">
+                <div className="space-y-2">
                   {/* Category */}
                   <small className="bg-lime-500 py-1 px-4 rounded-full w-fit">
                     {product.category}
@@ -73,6 +73,19 @@ const ProductQuickViewModal = () => {
                   />
                   {/* Product Description */}
                   <ProductDescription description={product.description} />
+
+                  {/* product stock */}
+                  <div className="">
+                    {product.stockItems === 0 ? (
+                      <p className="text-lg w-fit rounded-md">
+                        out of stock
+                      </p>
+                    ) : (
+                      <p className="text-lg w-fit rounded-md text-muted-foreground">
+                        Only {product.stockItems} items in stock
+                      </p>
+                    )}
+                  </div>
 
                   {/* product colors */}
                   <ProductColorSelection
@@ -103,11 +116,11 @@ const ProductQuickViewModal = () => {
                   >
                     {/* Add To Cart Button */}
                     <AddToCartBtn
-                    product={{...product,quantity,selectedColor}}
+                      product={{ ...product, quantity, selectedColor }}
                     />
                     {/* Buy Now Button */}
                     <BuyNowBtn
-                    product={{...product,quantity,selectedColor}}
+                      product={{ ...product, quantity, selectedColor }}
                     />
                   </div>
                   <ProductTab

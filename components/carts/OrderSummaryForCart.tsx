@@ -1,14 +1,28 @@
 'use client'
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CheckoutBtn from "../buttons/CheckoutBtn";
 import useCartStore from "@/store/cartStore";
+import Loader from "../others/Loader";
 
 const OrderSummaryForCart = () => {
 
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+     setIsMounted(true)
+  },[])
+
+  
   const {getTotalPrice,getTax,getShippingFee,getTotalAmount} = useCartStore()
 
+  
+  if(!isMounted){
+    return <Loader />
+  }
+
+
   return (
-    <div className="w-full shadow-md  bg-gray-100 dark:bg-gray-700 p-4 md:p-6 rounded-lg">
+    <div className="w-full shadow-md  bg-gray-100 dark:bg-gray-700 p-4 md:p-6 rounded-lg" >
       <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
         Order Summary
       </h2>

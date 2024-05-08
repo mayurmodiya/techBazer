@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Separator } from "../ui/separator";
 import ProductTab from "./ProductTab";
 import BuyNowBtn from "../buttons/BuyNowBtn";
@@ -17,7 +17,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
   const [selectedColor, setSelectedColor] = useState("");
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 mt-2">
       {/* Category */}
       <Link
         href={`/shop?category=${product.category}`}
@@ -38,11 +38,13 @@ const ProductDetails = ({ product }: { product: Product }) => {
       <ProductDescription description={product?.description as string} />
 
       {/* product stock */}
-      <div className="!mt-4">
+      <div>
         {product.stockItems === 0 ? (
-          <p className="text-lg border-rose-500 border px-2  w-fit rounded-md">out of stock</p>
-        ):(
-          <p className="text-lg border-rose-500 border px-2  w-fit rounded-md text-muted-foreground">Only {product.stockItems} items in stock</p>
+          <p className="text-lg  w-fit rounded-md">out of stock</p>
+        ) : (
+          <p className="text-lg w-fit rounded-md text-muted-foreground">
+            Only {product.stockItems} items in stock
+          </p>
         )}
       </div>
       {/* product colors */}
@@ -52,7 +54,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
         allColors={product.color!}
       />
 
-      <div className="flex items-center gap-6 !mb-4">
+      <div className="flex items-center gap-6">
         <div className="">
           {/* Original Price */}
           <p className="text-muted-foreground line-through text-2xl">
@@ -60,7 +62,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
           </p>
           <div className="flex items-center gap-4">
             {/* Discounted Price */}
-            <p className="text-3xl font-bold text-green-500 border-green-500 border p-2 rounded-lg">
+            <p className="text-3xl font-bold text-green-500 border-green-500 border py-2 px-6 rounded-lg">
               ${calculateDiscount(product.price, product.discount)}
             </p>
             <ProductQuantityChange
@@ -70,7 +72,7 @@ const ProductDetails = ({ product }: { product: Product }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row items-center gap-2">
+      <div className="flex flex-col md:flex-row items-center gap-4 !my-6">
         {/* Add To Cart Button */}
         <AddToCartBtn product={{ ...product, quantity, selectedColor }} />
         {/* Buy Now Button */}

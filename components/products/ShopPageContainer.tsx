@@ -6,19 +6,18 @@ import Pagination from "../others/Pagination";
 import SingleProductListView from "@/components/product/SingleProductListView";
 import { Product, SearchParams } from "@/types";
 import SingleProductCartView from "../product/SingleProductCartView";
+import BreadcrumbComponent from "../others/Breadcrumb";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
 
 interface ShopPageContainerProps {
   searchParams: SearchParams;
   gridColumn?: number;
-  showHomeBanner: boolean;
 }
 
 const ShopPageContainer = ({
   searchParams,
   gridColumn,
-  showHomeBanner,
 }: ShopPageContainerProps) => {
   const [loading, setLoading] = useState(true);
   const [listView, setListView] = useState(false);
@@ -111,20 +110,13 @@ const ShopPageContainer = ({
           itemPerPage={itemsPerPage}
           currentPage={currentPage}
         />
-        <p className="text-xl font-bold">Sorry no result found with your filter selection</p>
+        <p>Sorry no result found with your filter selection</p>
       </div>
     );
   }
 
   return (
     <div className="md:ml-4">
-      {showHomeBanner && (
-        <div className="p-6 py-10 w-full bg-gray-300 dark:bg-gray-800 text-3xl flex items-center justify-center gap-2">
-          <Link href={"/"}>Home</Link>
-          <p>/</p>
-          <Link href={"/shop"}>Shop</Link>
-        </div>
-      )}
       <ProductViewChange
         listView={listView}
         setListView={setListView}

@@ -40,7 +40,7 @@ const ProductsCollectionOne = () => {
         </div>
         <TabsContent value="top-rated" className="w-full">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full">
-            {data.map((product) => {
+            {data?.slice(0, 8)?.map((product) => {
               return (
                 <SingleProductCartView key={product.id} product={product} />
               );
@@ -49,7 +49,7 @@ const ProductsCollectionOne = () => {
         </TabsContent>
         <TabsContent value="most-popular">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {data.map((product) => {
+            {data?.slice(0, 8)?.map((product) => {
               return (
                 <SingleProductCartView key={product.id} product={product} />
               );
@@ -58,7 +58,7 @@ const ProductsCollectionOne = () => {
         </TabsContent>
         <TabsContent value="new-items">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {data.map((product) => {
+            {data?.slice(0, 8)?.map((product) => {
               return (
                 <SingleProductCartView key={product.id} product={product} />
               );

@@ -1,11 +1,13 @@
 "use client";
 import { Minus, Plus } from "lucide-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import useCartStore from "@/store/cartStore";
 
 const CartItemsDetails = () => {
+
+  const [isMounted, setIsMounted] = useState(false)
 
   const {
     cartItems,
@@ -15,16 +17,24 @@ const CartItemsDetails = () => {
   } = useCartStore();
 
 
-  console.log(cartItems)
+  
+  useEffect(() => {
+    setIsMounted(true)
+  },[])
 
-  if(cartItems.length === 0){
+
+  if(!isMounted){
+    return null
+  }
+
+  if(cartItems?.length === 0){
    return <div className="text-xl text-center p-2 lg:col-span-2">
       Sorry, No Item Found In The Cart
     </div>
   }
 
   return (
-    <div className="space-x-2 lg:col-span-2">
+    <div className="space-x-2 lg:col-span-2" suppressHydrationWarning >
       {cartItems?.map((item) => (
         <div
           key={item?.id}
@@ -75,7 +85,7 @@ const CartItemsDetails = () => {
           </div>
         </div>
       ))}
-      {cartItems.length >= 1 && (
+      {cartItems?.length >= 1 && (
         <Button variant={'outline'} className="mb-2" onClick={clearCart}>Clear Cart</Button>
       )}
     </div>

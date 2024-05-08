@@ -14,8 +14,11 @@ import { ArrowRight, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import { bannerData } from "@/data/banner/bannerData";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const HeroBannerOne = () => {
+  // get banners data from server then display here
+
   return (
     <section className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 ">
       <div className="max-w-screen-2xl mx-auto py-15 px-4 md:px-8 ">
@@ -39,7 +42,7 @@ const HeroBannerOne = () => {
                   className="text-center justify-center space-y-4"
                 >
                   <p className="flex items-center gap-4 -mb-4 text-xl font-bold rounded-xl  text-rose-600">
-                    <Rocket className="" size={50} />
+                    <Rocket className="animate-bounce" size={50} />
                     <span className="text-blue-800">{data.discountText}</span>
                   </p>
                   <h2
@@ -52,12 +55,14 @@ const HeroBannerOne = () => {
                   <p className="max-w-96 mx-auto leading-6">
                     {data.description}
                   </p>
-                  <Button
-                    size={"lg"}
-                    className="text-xl p-3 md:p-8 rounded-full gap-2 md:gap-4"
-                  >
-                    <ArrowRight className="text-rose-500" /> {data.button}
-                  </Button>
+                  <Link href={data.link} className="block">
+                    <Button
+                      size={"lg"}
+                      className="text-xl p-3 md:p-8 rounded-full gap-2 md:gap-4"
+                    >
+                      <ArrowRight className="text-rose-500" /> {data.button}
+                    </Button>
+                  </Link>
                 </motion.div>
 
                 <motion.div
@@ -77,7 +82,7 @@ const HeroBannerOne = () => {
                 {/* Animated Sparkles */}
                 <motion.div
                   initial={{ opacity: 0 }}
-                  whileInView={{opacity: 1 }}
+                  whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                   className="absolute right-[10rem] top-[8rem] flex items-center justify-center pointer-events-none z-0"
                 >

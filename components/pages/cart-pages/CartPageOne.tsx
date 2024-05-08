@@ -1,4 +1,4 @@
-
+'use client'
 import CartItemsDetails from "@/components/carts/CartItemsDetails";
 import OrderSummaryForCart from "@/components/carts/OrderSummaryForCart";
 import BreadcrumbComponent from "@/components/others/Breadcrumb";

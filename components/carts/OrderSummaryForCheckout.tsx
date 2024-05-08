@@ -1,12 +1,26 @@
 'use client'
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CartItemsDetails from "./CartItemsDetails";
 import { Separator } from "../ui/separator";
 import useCartStore from "@/store/cartStore";
+import { Button } from "../ui/button";
+import Loader from "../others/Loader";
 
 const OrderSummaryForCheckout = () => {
 
+  const [isMounted, setIsMounted] = useState(false);
+  
+  useEffect(() => {
+     setIsMounted(true)
+  },[])
+
+
   const {getTotalPrice,getTax,getShippingFee,getTotalAmount} = useCartStore()
+
+  if(!isMounted){
+    return <Loader />
+  }
+
 
   return (
     <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
@@ -42,9 +56,9 @@ const OrderSummaryForCheckout = () => {
             ${getTotalAmount()}
           </span>
         </div>
-        <button className="text-xl mt-6 bg-blue-500 dark:bg-blue-600 text-white py-3 px-8 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none">
+        <Button className="text-xl mt-6 bg-blue-500 dark:bg-blue-600 text-white py-8 px-10 hover:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none rounded-full hover:ring-2">
           Place Order
-        </button>
+        </Button>
       </div>
     </div>
   );

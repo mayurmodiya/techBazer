@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Breadcrumb,
@@ -22,10 +23,12 @@ const BreadcrumbComponent = ({
           <BreadcrumbLink href={"/"}>Home</BreadcrumbLink>
         </BreadcrumbItem>
         {links.map((link) => (
-          <BreadcrumbItem key={link}>
-             <BreadcrumbSeparator />
-            <BreadcrumbLink href={link}>{link.slice(1)}</BreadcrumbLink>
-          </BreadcrumbItem>
+          <div key={link} className="flex items-center gap-2">
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href={link}>{link.slice(1)}</BreadcrumbLink>
+            </BreadcrumbItem>
+          </div>
         ))}
 
         <BreadcrumbSeparator />

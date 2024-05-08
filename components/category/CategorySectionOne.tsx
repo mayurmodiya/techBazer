@@ -1,7 +1,6 @@
 'use client'
-import { categories } from "@/data/category/categoryData";
+import { dummyCategories } from "@/data/category/categoryData";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React from "react";
 
@@ -21,16 +20,19 @@ const CategorySectionOne = () => {
   return (
     <section className="py-16 bg-slate-300 dark:bg-slate-900">
       <div className="flex items-center flex-col md:flex-row gap-4 max-w-screen-2xl mx-auto overflow-auto px-4 md:px-8">
-      {categories.map((category) => (
+      {dummyCategories.map((category) => (
         <div
           onClick={() => handleCategoryClick(category.name)}
-          key={category.link}
-          className=" p-4 rounded-md shadow-md w-full flex items-center gap-4 bg-gray-100 dark:bg-gray-800 cursor-pointer"
+          key={category.id}
+          className=" p-4 rounded-lg shadow-md w-full flex flex-col items-center justify-center bg-gray-100 dark:bg-gray-800 cursor-pointer"
         >
-          <div className="relative w-[5rem] h-[5rem]">
+          <div className="relative w-[8rem] h-[8rem]">
             <Image className="object-cover" src={category.image} fill alt={category.name} />
           </div>
-          <p className="text-lg font-medium hover:underline">{category.name}</p>
+          <div className="text-center">
+          <p className="text-xl font-semibold hover:underline">{category.name}</p>
+          <p>{category.description}</p>
+          </div>
         </div>
       ))}
     </div>

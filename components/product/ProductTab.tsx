@@ -11,7 +11,7 @@ interface ProductTabsProps {
 const ProductTab = ({ aboutItem = [], reviews = [] }: ProductTabsProps) => {
   return (
     <div>
-      <Tabs defaultValue="aboutitem" className="w-full p-4 ">
+      <Tabs defaultValue="aboutitem" className="w-full p-4 -mt-2 ">
         <TabsList className="bg-transparent">
           <TabsTrigger value="aboutitem">About This Item</TabsTrigger>
           <TabsTrigger value="reviews">Reviews</TabsTrigger>
@@ -39,7 +39,7 @@ const ProductTab = ({ aboutItem = [], reviews = [] }: ProductTabsProps) => {
                     <p className="text-sm text-muted-foreground">{review.content}</p>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Image src={review.image || ''} alt="person" width={50} height={50} className="rounded-full object-contain"/>
+                    <Image src={review.image || ''} alt="person" width={50} height={50} className="rounded-full object-cover"/>
                     <div>
                     <p className="whitespace-nowrap">{review.author}</p>
                     <small>{review.date.toDateString()}</small>

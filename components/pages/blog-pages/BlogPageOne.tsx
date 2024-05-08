@@ -8,12 +8,11 @@ import RecentBlogs from "../../blog/RecentBlogs";
 const BlogPageOne = () => {
   return (
     <div className="max-w-screen-2xl mx-auto p-2 md:p-4 grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-5 ">
-      <div className="col-span-3 space-y-2">
+      <div className="col-span-3 space-y-4">
         {blogPosts.map((blog) => (
-          <Link
+          <div
             key={blog.title}
-            href={`blog/${blog.title}`}
-            className="block space-y-2 rounded-md shadow p-4 text-left"
+            className="block space-y-2 rounded-md shadow p-4 dark:bg-gray-900 text-left"
           >
             <div className="relative w-full h-[20rem]">
               <Image
@@ -39,8 +38,8 @@ const BlogPageOne = () => {
                 {blog.author}
               </div>
             </div>
-            <div>{blog.content.slice(0,300)}... <span className="text-gray-900 dark:text-gray-100 underline">Read More</span></div>
-          </Link>
+            <Link href={`/blog/${blog.title}`}>{blog.content.slice(0,300)}... <span className="text-gray-900 dark:text-gray-100 underline">Read More</span></Link>
+          </div>
         ))}
       </div>
       <RecentBlogs />

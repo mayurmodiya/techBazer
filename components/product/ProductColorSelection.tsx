@@ -16,8 +16,8 @@ const ProductColorSelection = ({
   allColors
 }: ProductColorSelectionProps) => {
   return (
-    <div className="!mt-4">
-      <p className="text-lg  mb-1">Available Colors :</p>
+    <div>
+      <p className="text-lg  mb-1">Colors</p>
       <div className="space-x-2">
         <TooltipProvider delayDuration={0}>
           {allColors?.map((color) => (
@@ -26,8 +26,8 @@ const ProductColorSelection = ({
                 <span
                   onClick={() => setColor(color as string)}
                   className={cn(
-                    "block w-10 h-10 rounded-full border border-spacing-4 opacity-80",
-                    selectedColor === color ? "ring-4" : "ring-0"
+                    "block w-8 h-8 rounded-full border border-spacing-4 opacity-80",
+                    selectedColor === color ? "ring-2" : "ring-0"
                   )}
                   style={{ backgroundColor: color }}
                 />
