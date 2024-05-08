@@ -1,15 +1,10 @@
-import OrderActions from "@/components/dashboard/order/OrderActions";
-import { Button } from "@/components/ui/button";
+
+import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import React from "react";
 
-export const Separator = () => {
-  return (
-    <hr className="my-6 border-t border-gray-300 dark:border-gray-600" />
-  );
-};
-
 const OrderDetails = () => {
+
   // get order data based on orderId from the params here
   const order = {
     orderNumber: "ORD123456",
@@ -44,7 +39,7 @@ const OrderDetails = () => {
         Order Details
       </h2>
 
-      <Separator />
+      <Separator className="dark:bg-gray-500"/>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
@@ -88,14 +83,19 @@ const OrderDetails = () => {
       <Separator />
       <div className="mt-6">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-         Order Products
+          Order Products
         </h3>
         <ul className=" dark:divide-gray-700 my-4 space-y-2">
           {order.products.map((product) => (
             <li key={product.id} className="">
               <div className="flex justify-between items-center !border dark:border-gray-500 px-2 rounded-md ">
                 <p className="text-gray-900 dark:text-white">{product.name}</p>
-                <Image src={product.image} alt="product image" width={80} height={80}/>
+                <Image
+                  src={product.image}
+                  alt="product image"
+                  width={80}
+                  height={80}
+                />
                 <p className="text-gray-700 dark:text-gray-300">
                   Qty : {product.quantity}
                 </p>
@@ -107,7 +107,7 @@ const OrderDetails = () => {
       </div>
       <div className="mt-6 flex items-center gap-4">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-          Total : 
+          Total :
         </h3>
         <p className="text-xl font-bold text-gray-900 dark:text-white">
           ${order.total}
