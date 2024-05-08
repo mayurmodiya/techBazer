@@ -118,6 +118,7 @@ const ShopPageContainer = ({
 
   return (
     <div className="md:ml-4">
+      {/* product status and filter options */}
       <ProductViewChange
         listView={listView}
         setListView={setListView}
@@ -126,6 +127,7 @@ const ShopPageContainer = ({
         currentPage={currentPage}
       />
 
+    {/* showing product list or cart view based on state */}
       {listView === true && (
         <div className="max-w-screen-2xl mx-auto overflow-hidden py-4 md:py-8 gap-4 lg:gap-6">
           {paginatedData.map((product) => (
@@ -133,6 +135,8 @@ const ShopPageContainer = ({
           ))}
         </div>
       )}
+
+
       {listView === false && (
         <div
           className={`max-w-screen-2xl mx-auto overflow-hidden py-4 md:py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-${
@@ -145,6 +149,7 @@ const ShopPageContainer = ({
         </div>
       )}
 
+      {/* product pagination here */}
       <Pagination
         totalPages={Math.ceil(filteredData.length / itemsPerPage)}
         currentPage={currentPage}
