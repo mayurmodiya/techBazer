@@ -1,8 +1,6 @@
 import OrderActions from '@/components/dashboard/order/OrderActions';
 import OrderSearch from '@/components/dashboard/order/OrderSearch';
 import Pagination from '@/components/others/Pagination';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
 import React from 'react';
 
 const OrdersPage = () => {

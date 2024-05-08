@@ -11,7 +11,7 @@ const CategorySectionOne = () => {
 
 
   const handleCategoryClick = (category: string) => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(searchParams);
     params.set("category", category);
     router.push(`shop?${params.toString()}`);
     window.scrollTo(0,0)

@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 
 const BlogsPage = () => {
+  
   // Dummy blog data for demonstration
   const blogs = [
     {
