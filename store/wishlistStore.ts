@@ -1,5 +1,5 @@
 'use client';
-import { Product, WishlistItem } from '@/types';
+import { Product } from '@/types';
 import { create } from 'zustand';
 
 interface WishlistState {
