@@ -47,7 +47,7 @@ const HeroBannerOne = () => {
                   </p>
                   <h2
                     className={cn(
-                      "text-2xl md:text-5xl max-w-96 mx-auto font-bold break-words"
+                      "text-3xl md:text-5xl max-w-96 mx-auto font-bold break-words"
                     )}
                   >
                     {data.title}
@@ -55,10 +55,10 @@ const HeroBannerOne = () => {
                   <p className="max-w-96 mx-auto leading-6">
                     {data.description}
                   </p>
-                  <Link href={data.link} className="block">
+                  <Link href={data.link} className="block ">
                     <Button
                       size={"lg"}
-                      className="text-xl p-3 md:p-8 rounded-full gap-2 md:gap-4"
+                      className="text-xl p-3 md:p-8 rounded-full gap-2 md:gap-4 mb-4"
                     >
                       <ArrowRight className="text-rose-500" /> {data.button}
                     </Button>

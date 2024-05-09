@@ -46,7 +46,9 @@ const OrderSummaryForCart = () => {
           ${getTotalAmount()}
         </span>
       </div>
+      <div className="w-fit mt-4">
       <CheckoutBtn />
+      </div>
     </div>
   );
 };

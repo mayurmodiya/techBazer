@@ -49,14 +49,14 @@ const Cart = () => {
     <div className="max-w-screen-2xl mx-auto">
       <Sheet open={showSheet} onOpenChange={() => setShowSheet(!showSheet)}>
         <SheetTrigger>
-          <div className="relative hover:opacity-30 duration-200">
+          <div className="relative hover:opacity-30 duration-200 mt-2">
             <ShoppingBag size={25} />
             <Badge className="absolute -top-2 -right-3" variant="destructive">
               {getTotalItems()}
             </Badge>
           </div>
         </SheetTrigger>
-        <SheetContent className="w-[90%]">
+        <SheetContent className="w-[90%] overflow-y-auto md:overflow-y-hidden">
           <SheetHeader>
             <SheetTitle>Shopping Cart</SheetTitle>
             <Separator />
@@ -78,7 +78,7 @@ const Cart = () => {
                     />
                     <div className="space-y-2">
                       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-                        <h2>{item.name}</h2>
+                        <h2>{item.name.slice(0,50)}...</h2>
                       </div>
 
                       <div className="flex items-center justify-between">

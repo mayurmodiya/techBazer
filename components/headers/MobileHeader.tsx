@@ -12,20 +12,19 @@ import { Heart, HelpCircle, ListOrdered, LogOut, Menu, User } from "lucide-react
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { ThemeToggle } from "../theme/ThemeToggle";
-import UserAvatar from "../account/UserAvatar";
 import { Separator } from "../ui/separator";
 
 const MobileHeader = () => {
   return (
-    <div className="md:hidden">
+    <div className="lg:hidden">
       <Sheet>
         <SheetTrigger>
-          <Menu className="" size={25} />
+          <Menu className="mt-2" size={25} />
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
             <SheetDescription>
-              <ul className="space-y-4 text-start ">
+              <ul className="space-y-4 text-start text-lg">
                 <Link href={"/"} className="block">Home</Link>
                 <Link href={"/"} className="block">Shop</Link>
                 <Link href={"/"} className="block">Blog</Link>
@@ -64,13 +63,12 @@ const MobileHeader = () => {
                   Help
                 </Link>
                 <Separator />
-                <Button
+                <button
                   className="flex items-start justify-start gap-2 hover:opacity-50"
-                  variant={"destructive"}
                 >
                   <LogOut />
                   Logout
-                </Button>
+                </button>
               </ul>
             </SheetDescription>
           </SheetHeader>

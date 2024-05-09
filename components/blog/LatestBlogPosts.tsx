@@ -13,21 +13,22 @@ const LatestBlogPosts = ({ twoColunmHeader }: { twoColunmHeader: boolean }) => {
     <div className="py-16 bg-gray-300 dark:bg-gray-950">
       <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
         {twoColunmHeader ? (
-          <div className="flex flex-wrap items-center justify-between mb-12">
-            <h2 className="text-2xl md:text-5xl font-bold  text-gray-900 dark:text-white border-l-4 p-2 border-l-rose-500 ">
+          <div className="flex flex-wrap items-center justify-center md:justify-between mb-12">
+            <h2 className="text-3xl md:text-5xl !text-center md:text-start font-bold  text-gray-900 dark:text-white border-l-4 p-2 border-l-rose-500 ">
               Latest Blog Posts
             </h2>
              <Button 
              variant={'outline'}
+             className="hidden md:block"
              size={'sm'}
              >
-             <Link href={"/blog"}>
+             <Link href={"/blog"} >
                 Read More
               </Link>
              </Button>
           </div>
         ) : (
-          <h2 className="text-2xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-12 border-b-4 border-b-rose-500 rounded-b-xl w-fit mx-auto p-2">
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-12 border-b-4 border-b-rose-500 rounded-b-xl w-fit mx-auto p-2">
             Latest Blog Posts
           </h2>
         )}

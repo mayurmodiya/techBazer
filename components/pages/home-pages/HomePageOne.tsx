@@ -13,9 +13,9 @@ const HomePageOne = () => {
       <HeroBannerOne />
       <CategoriesCollection />
       <ProductsCollectionOne />
-      <TestimonialsSection textCenter={false}/>
+      <TestimonialsSection textCenter={false} />
       <BannerTwo />
-      <LatestBlogPosts twoColunmHeader={true}/>
+      <LatestBlogPosts twoColunmHeader={true} />
       <NewsLetterTwo />
     </section>
   );

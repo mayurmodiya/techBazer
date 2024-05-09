@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import useCartStore from "@/store/cartStore";
+import Link from "next/link";
 
 const CartItemsDetails = () => {
 
@@ -38,7 +39,7 @@ const CartItemsDetails = () => {
       {cartItems?.map((item) => (
         <div
           key={item?.id}
-          className="flex flex-wrap items-center justify-between gap-2 border-b border-gray-300 dark:border-gray-500 mb-4 pb-4"
+          className="flex flex-wrap items-center justify-between md:gap-2 border-b border-gray-300 dark:border-gray-500 mb-4 pb-4 px-2"
         >
           <div className="flex items-center space-x-4">
             <Image
@@ -48,9 +49,9 @@ const CartItemsDetails = () => {
               width={64}
               className="w-16 h-16 rounded-lg object-cover"
             />
-            <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+            <Link href={`/shop/${item.id}`} className="text-xl font-semibold text-gray-900 dark:text-white hover:opacity-60">
               {item?.name?.slice(0, 30)}...
-            </h2>
+            </Link>
           </div>
           <p className="border rounded-md border-green-400 py-1 px-2  text-xl text-green-500">
             ${item?.price}
