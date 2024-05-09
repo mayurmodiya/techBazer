@@ -4,8 +4,9 @@ import ProductsCollectionOne from "@/components/products/ProductsCollectionOne";
 import NewsLetterTwo from "@/components/newsLetter/NewsLetterTwo";
 import LatestBlogPosts from "@/components/blog/LatestBlogPosts";
 import CategoriesCollection from "@/components/category/CategoriesCollection";
-import BannerTwo from "@/components/banners/BannerTwo";
 import TestimonialsSection from "@/components/others/Testimonials";
+import BannerOne from "@/components/banners/BannerOne";
+import BenefitsSection from "@/components/others/BenefitSection";
 
 const HomePageOne = () => {
   return (
@@ -13,8 +14,9 @@ const HomePageOne = () => {
       <HeroBannerOne />
       <CategoriesCollection />
       <ProductsCollectionOne />
+      <BenefitsSection textCenter={false}/>
+      <BannerOne />
       <TestimonialsSection textCenter={false} />
-      <BannerTwo />
       <LatestBlogPosts twoColunmHeader={true} />
       <NewsLetterTwo />
     </section>

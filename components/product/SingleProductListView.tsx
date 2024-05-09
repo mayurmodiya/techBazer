@@ -8,17 +8,9 @@ import AddToCartBtn from "../buttons/AddToCartBtn";
 import { Product } from "@/types";
 import { calculateDiscount } from "@/lib/calculateDiscount";
 
-const SingleProductListView = ({product}:{product:Product}) => {
-  const {
-    category,
-    discount,
-    id,
-    images,
-    name,
-    price,
-    rating,
-    reviews,
-  } = product;
+const SingleProductListView = ({ product }: { product: Product }) => {
+  const { category, discount, id, images, name, price, rating, reviews } =
+    product;
 
   const discountPrice = calculateDiscount(price, discount);
 
@@ -52,7 +44,7 @@ const SingleProductListView = ({product}:{product:Product}) => {
           saepe, deleniti quia reiciendis.
         </div>
         <div
-          className="flex flex-col md:flex-row mt-4 items-center gap-2 w-96 ml-auto justify-end"
+          className="flex flex-col md:flex-row mt-4 items-center gap-2 max-w-96 ml-auto justify-end"
           onClick={(e) => e.preventDefault()}
         >
           <AddToWishlistBtn product={product} />

@@ -5,8 +5,6 @@ import React from "react";
 import { Button } from "../ui/button";
 
 const LatestBlogPosts = ({ twoColunmHeader }: { twoColunmHeader: boolean }) => {
-
-  
   // get latest blogs data from server here
 
   return (
@@ -17,22 +15,16 @@ const LatestBlogPosts = ({ twoColunmHeader }: { twoColunmHeader: boolean }) => {
             <h2 className="text-3xl md:text-5xl !text-center md:text-start font-bold  text-gray-900 dark:text-white border-l-4 p-2 border-l-rose-500 ">
               Latest Blog Posts
             </h2>
-             <Button 
-             variant={'outline'}
-             className="hidden md:block"
-             size={'sm'}
-             >
-             <Link href={"/blog"} >
-                Read More
-              </Link>
-             </Button>
+            <Button variant={"outline"} className="hidden md:block" size={"sm"}>
+              <Link href={"/blog"}>Read More</Link>
+            </Button>
           </div>
         ) : (
-          <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-12 border-b-4 border-b-rose-500 rounded-b-xl w-fit mx-auto p-2">
+          <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900 dark:text-white mb-12 border-l-4 border-l-rose-500 w-fit mx-auto p-2">
             Latest Blog Posts
           </h2>
         )}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {blogPosts.slice(0, 3).map((post) => (
             <div
               key={post.title}
@@ -51,10 +43,10 @@ const LatestBlogPosts = ({ twoColunmHeader }: { twoColunmHeader: boolean }) => {
                   {post.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 text-sm mb-2">
-                  By {post.author} | {post?.date?.toISOString()}
+                  By {post.author} | {post?.date?.toDateString()}
                 </p>
                 <p className="text-gray-700 dark:text-gray-400">
-                  {post.excerpt}
+                  {post.excerpt.slice(0, 100)}...
                 </p>
                 <div className="flex items-center justify-between mt-4">
                   <Link

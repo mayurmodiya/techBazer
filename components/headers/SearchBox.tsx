@@ -22,7 +22,7 @@ const SearchBox = () => {
       params.set("query", searchTerm);
     }
 
-    console.log(pathname, searchTerm);
+        // replace localhost with your domain
     router.push(`http://localhost:3000/search?${params}`);
     
   };

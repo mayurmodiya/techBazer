@@ -8,7 +8,7 @@ import { dummyCategories } from "@/data/category/categoryData";
 
 const Footer = () => {
   return (
-    <footer className=" bg-gray-800 text-white py-8 px-4 md:px-8">
+    <footer className=" bg-gray-700 text-white py-8 px-4 md:px-8">
       <div className="max-w-screen-2xl mx-auto p-2 md:p-4 container flex md:flex-row  flex-wrap gap-2 justify-between">
         <div className="flex flex-col space-y-4 mb-8 md:mb-0">
           <h3 className="text-xl font-semibold">TechBazer</h3>

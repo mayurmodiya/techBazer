@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 function HeroBannerTwo() {
 
@@ -27,9 +28,9 @@ function HeroBannerTwo() {
                 Explore our wide range of gadgets and electronics
               </p>
               <div className="flex items-center justify-center md:justify-start">
-                <Button className="bg-blue-500 hover:bg-blue-600 text-lg text-white py-8 px-12 rounded-full flex items-center gap-2">
+                <Link href={`/shop`} className="bg-blue-500 hover:bg-blue-600 text-lg text-white py-4 px-10 rounded-full flex items-center gap-2">
                   <ArrowRight /> Shop Now
-                </Button>
+                </Link>
               </div>
             </div>
             <div className="relative h-[20rem] md:h-[30rem] w-full lg:mt-0">

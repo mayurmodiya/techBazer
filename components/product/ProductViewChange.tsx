@@ -35,6 +35,8 @@ const ProductViewChange = ({
           results
         </p>
       </div>
+      
+      {/* this product list and cart view functionality is hidden on mobile screen */}
       <div className="hidden md:flex items-center gap-4">
         <TooltipProvider delayDuration={0}>
           <Tooltip>

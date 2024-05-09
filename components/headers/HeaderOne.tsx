@@ -46,8 +46,8 @@ const HeaderOne = () => {
             <Link
               key={link.link}
               className={cn(
-                "font-medium px-4 py-1 rounded-full hover:opacity-70",
-                link.isActive && "bg-gray-200 dark:bg-gray-600  rounded-full"
+                "font-medium px-4 py-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800",
+                link.isActive && "bg-gray-200 dark:bg-gray-800  rounded-full"
               )}
               href={link.link}
             >
@@ -64,7 +64,7 @@ const HeaderOne = () => {
           <div className="hidden lg:block">
             <SearchBox />
           </div>
-          <div className="flex items-center gap-6 lg:-mt-1">
+          <div className="flex items-center gap-6 lg:gap-2 lg:-mt-1">
             <div className="hidden lg:block">
               <ThemeToggle />
             </div>

@@ -36,7 +36,7 @@ const Cart = () => {
 
   if (!isMounted) {
     return (
-      <div className="relative hover:opacity-60 duration-200">
+      <div className="relative p-2 hover:bg-gray-200 dark:hover:bg-gray-800 duration-200 rounded-md">
         <ShoppingBag size={25} />
         <Badge className="absolute -top-2 -right-3" variant="destructive">
           0
@@ -49,9 +49,9 @@ const Cart = () => {
     <div className="max-w-screen-2xl mx-auto">
       <Sheet open={showSheet} onOpenChange={() => setShowSheet(!showSheet)}>
         <SheetTrigger>
-          <div className="relative hover:opacity-30 duration-200 mt-2">
+          <div className="relative p-2 hover:bg-gray-200 dark:hover:bg-gray-800 duration-200 rounded-md mt-2">
             <ShoppingBag size={25} />
-            <Badge className="absolute -top-2 -right-3" variant="destructive">
+            <Badge className="absolute -top-0 -right-2" variant="destructive">
               {getTotalItems()}
             </Badge>
           </div>
