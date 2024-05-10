@@ -19,13 +19,13 @@ const ProductActions = () => {
         </PopoverTrigger>
         <PopoverContent className="text-start">
         <Link
-            href={`/dashboard/orders/id`}
+            href={`/dashboard/products/id`}
             className="py-2 px-4 rounded-md w-full  block hover:bg-slate-200 dark:hover:bg-slate-900"
           >
             View Product
           </Link>
           <Link
-            href={`/dashboard/orders/id`}
+            href={`/dashboard/products/id`}
             className="py-2 px-4 rounded-md w-full  block hover:bg-slate-200 dark:hover:bg-slate-900"
           >
             Update Product

@@ -6,10 +6,39 @@ import React from "react";
 import PopularPosts from "@/components/blog/PopularPosts";
 import AboutMe from "@/components/blog/AboutMe";
 import NewsLetterTwo from "@/components/newsLetter/NewsLetterTwo";
+import CommentSection from "@/components/blog/CommentSection";
 
 const BlogTitlePage = ({ params }: { params: { title: string } }) => {
+
+  // get data from server based on the params 
+
   const title = params.title.split("%20").join(" ");
   const blog = blogPosts.find((item) => item.title === title);
+
+  const renderContent = () => {
+    return blog?.content.map((item, index) => {
+      if (item.type === "text") {
+        // Render text content as separate paragraphs
+        return (
+          <p key={index} className="text-xl leading-9">
+            {item.text}
+          </p>
+        );
+      } else if (item.type === "image") {
+        // Render images with flexible positioning
+        return (
+          <div key={index} className="relative w-full h-[30rem] mb-8">
+            <Image
+              className="rounded-md object-contain"
+              src={item.src || ''}
+              alt={item.alt || 'image'}
+              layout="fill"
+            />
+          </div>
+        );
+      }
+    });
+  };
 
   return (
     <section>
@@ -20,7 +49,8 @@ const BlogTitlePage = ({ params }: { params: { title: string } }) => {
         />
         {/* blog details  */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 w-full">
-          <div className="space-y-2 lg:col-span-2">
+          <div className="space-y-4 lg:col-span-2">
+            {/* Blog Title */}
             <div>
               <h2 className="text-3xl md:text-4xl font-bold capitalize">
                 {blog?.title}
@@ -33,18 +63,11 @@ const BlogTitlePage = ({ params }: { params: { title: string } }) => {
                 {blog?.author}
               </div>
             </div>
-            <div className="relative w-full h-[30rem] p-4">
-              <Image
-                className="rounded-md object-contain "
-                src={blog?.image || ""}
-                alt="blog image"
-                fill
-              />
+            <div className="relative w-full h-[30rem]">
+            <Image src={blog?.image!} alt={blog?.title!} fill className="rounded-md object-contain" />
             </div>
-
-            <div className="py-4">
-              <p className="text-xl leading-9">{blog?.content}</p>
-            </div>
+            {/* Render Content Dynamically */}
+            {renderContent()}
           </div>
           <div className="lg:col-span-1 space-y-4">
             <PopularPosts />
@@ -52,9 +75,12 @@ const BlogTitlePage = ({ params }: { params: { title: string } }) => {
           </div>
         </div>
       </div>
-        <div>
-          <NewsLetterTwo />
-        </div>
+      <div>
+        <CommentSection />
+      </div>
+      <div>
+        <NewsLetterTwo />
+      </div>
     </section>
   );
 };

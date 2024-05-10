@@ -1,5 +1,5 @@
 "use client";
-import {ShoppingBag, X } from "lucide-react";
+import { ShoppingBag, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Badge } from "../ui/badge";
 import {
@@ -19,9 +19,11 @@ import { Button } from "../ui/button";
 import useCartStore from "@/store/cartStore";
 import { showToast } from "@/lib/showToast";
 import { CartItem } from "@/types";
+import { formatPrice } from "@/lib/formatPrice";
 
 const Cart = () => {
-  const { cartItems, getTotalItems, removeFromCart,getTotalPrice } = useCartStore();
+  const { cartItems, getTotalItems, removeFromCart, getTotalPrice } =
+    useCartStore();
   const [showSheet, setShowSheet] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
@@ -78,7 +80,7 @@ const Cart = () => {
                     />
                     <div className="space-y-2">
                       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-                        <h2>{item.name.slice(0,50)}...</h2>
+                        <h2>{item.name.slice(0, 50)}...</h2>
                       </div>
 
                       <div className="flex items-center justify-between">
@@ -103,13 +105,15 @@ const Cart = () => {
               {/* subtotal and buttons here */}
               <div className="w-full">
                 <div className="flex items-center justify-between gap-2">
-                  <h3 className="text-xl text-center font-semibold">Your Subtotal :</h3>
+                  <h3 className="text-xl text-center font-semibold">
+                    Your Subtotal :
+                  </h3>
                   <p className="text-xl text-center font-bold text-green-500">
-                    $ {getTotalPrice()}
+                    $ {formatPrice(getTotalPrice())}
                   </p>
                 </div>
 
-                <Separator />
+                <Separator className="!my-2" />
                 <div
                   className="flex flex-col items-center !my-2"
                   onClick={() => setShowSheet(false)}

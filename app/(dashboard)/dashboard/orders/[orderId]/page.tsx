@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 
 const OrderDetails = () => {
+
   // get order data based on orderId from the params here
   const order = {
     orderNumber: "ORD123456",
@@ -15,17 +16,17 @@ const OrderDetails = () => {
     products: [
       {
         id: 1,
-        name: "Iphone Titanium 15 Pro Max",
+        name: "Apple watch 9 pro",
         price: 50,
         quantity: 2,
-        image: "/images/products/iphone-15-2.png",
+        image: "/images/products/apple-watch-9-3-removebg-preview.png",
       },
       {
         id: 2,
-        name: "Iphone Titanium 15 Pro Max",
+        name: "Apple watch se 9",
         price: 50,
         quantity: 2,
-        image: "/images/products/iphone-15-2.png",
+        image: "/images/products/apple-watch-se-2-removebg-preview.png",
       },
     ],
     total: 190,
@@ -37,7 +38,7 @@ const OrderDetails = () => {
         Order Details
       </h2>
 
-      <Separator className="dark:bg-gray-500" />
+      <Separator className="dark:bg-gray-500 my-2" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
@@ -78,21 +79,23 @@ const OrderDetails = () => {
           </p>
         </div>
       </div>
-      <Separator />
+
+      
       <div className="mt-6">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-          Order Products
+          Ordered Products
         </h3>
         <ul className=" dark:divide-gray-700 my-4 space-y-2">
           {order.products.map((product) => (
             <li key={product.id} className="">
               <div className="flex justify-between items-center !border dark:border-gray-500 px-2 rounded-md ">
-                <p className="text-gray-900 dark:text-white">{product.name}</p>
+                <p className="text-gray-900 dark:text-white text-lg font-semibold">{product.name}</p>
                 <Image
                   src={product.image}
                   alt="product image"
                   width={80}
                   height={80}
+                  className="object-contain"
                 />
                 <p className="text-gray-700 dark:text-gray-300">
                   Qty : {product.quantity}

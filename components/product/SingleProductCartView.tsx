@@ -6,10 +6,13 @@ import Image from "next/image";
 import ProductOptions from "./ProductOptions";
 import { Product } from "@/types";
 import { calculateDiscount } from "@/lib/calculateDiscount";
+import { useRouter } from "next/navigation";
 
-const SingleProductCartView = ({product}: {product:Product}) => {
+const SingleProductCartView = ({ product }: { product: Product }) => {
   const [isMounted, setIsMounted] = useState(false);
-  
+
+  const router = useRouter();
+
   const {
     category,
     discount,
@@ -26,12 +29,11 @@ const SingleProductCartView = ({product}: {product:Product}) => {
   const discountedPrice = calculateDiscount(price, discount);
 
   useEffect(() => {
-    setIsMounted(true)
-  },[])
+    setIsMounted(true);
+  }, []);
 
-
-  if(!isMounted){
-    return null
+  if (!isMounted) {
+    return null;
   }
 
   return (
@@ -57,13 +59,16 @@ const SingleProductCartView = ({product}: {product:Product}) => {
         <ProductOptions product={product} />
       </div>
       <div className="my-2 space-y-1 p-4">
-        <Link
-          href={`shop?category=${category}`}
-          className="text-sm text-sky-500 font-light"
+        <p
+          onClick={(e) => {
+            e.preventDefault();
+            router.push(`shop?category=${category}`);
+          }}
+          className="text-sm text-sky-500 font-light -mb-1 hover:opacity-60 "
         >
           {" "}
           {category}
-        </Link>
+        </p>
         <h3 className="text-xl font-fold capitalize hover:text-green-500">
           {name.slice(0, 45)}
           {name.length > 45 && "..."}

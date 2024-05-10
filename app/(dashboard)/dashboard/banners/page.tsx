@@ -1,29 +1,11 @@
 import BannerActions from '@/components/dashboard/banner/BannerActions';
+import { bannerData } from '@/data/banner/bannerData';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 const BannerPage = () => {
-  // Sample banner data
-  const banners = [
-    {
-      id: 1,
-      title: 'Welcome to Our Store',
-      description: 'Discover amazing deals on a wide range of products.',
-      buttonText: 'Shop Now',
-      buttonLink: '/shop',
-      image: '/banner-image-1.jpg',
-    },
-    {
-      id: 2,
-      title: 'New Arrivals',
-      description: 'Explore our latest collection of products.',
-      buttonText: 'View Now',
-      buttonLink: '/new-arrivals',
-      image: '/banner-image-2.jpg',
-    },
-    // Add more banners as needed
-  ];
+  
 
   return (
     <div className="bg-white dark:bg-gray-800 min-h-screen w-full my-4 rounded-md">
@@ -35,10 +17,10 @@ const BannerPage = () => {
         </div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {banners.map((banner) => (
-            <div key={banner.id} className="bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden shadow-md">
+          {bannerData.map((banner) => (
+            <div key={banner.link} className="bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden shadow-md">
               <div className='relative w-full h-[16rem]'>
-              <Image src={banner.image} fill alt={banner.title} className="w-full h-64 object-cover" />
+              <Image src={banner.images[0]} fill alt={banner.title} className="w-full h-64 object-contain" />
               </div>
               <div className="p-6">
                <div className='flex items-center justify-between gap-2'>
@@ -46,7 +28,7 @@ const BannerPage = () => {
                <BannerActions />
                </div>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">{banner.description}</p>
-                <a href={banner.buttonLink} className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">{banner.buttonText}</a>
+                <a href={`/${banner.link}`} className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">{banner.button}</a>
               </div>
             </div>
           ))}

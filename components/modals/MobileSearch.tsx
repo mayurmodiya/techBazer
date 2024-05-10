@@ -23,8 +23,7 @@ const MobileSearch = () => {
       params.set("query", searchTerm);
     }
 
-    // replace localhost with your domain
-    router.push(`http://localhost:3000/search?${params}`);
+    router.push(`/search?${params}`);
     
   };
 

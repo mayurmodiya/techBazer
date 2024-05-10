@@ -15,24 +15,20 @@ import { useProductQuickViewStore } from "@/store/productQuickViewStore";
 import Loader from "../others/Loader";
 
 const ProductOptions = ({ product }: { product: Product }) => {
-  const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState(false);
   const { openModal } = useProductQuickViewStore();
   const { images, name } = product;
 
   const { addToCart } = useCartStore();
-  const { addToWishlist } = useWishlistStore();
-
-  
+  const { addToWishlist, isInWishlist } = useWishlistStore();
 
   useEffect(() => {
-    setIsMounted(true)
-  },[])
+    setIsMounted(true);
+  }, []);
 
-  
-  if(!isMounted){
-    return <Loader />
+  if (!isMounted) {
+    return <Loader />;
   }
-
 
   const handleAddToCart = () => {
     addToCart({ ...product, quantity: 1, selectedColor: "" });
@@ -40,8 +36,12 @@ const ProductOptions = ({ product }: { product: Product }) => {
   };
 
   const handleAddToWishList = () => {
-    addToWishlist(product);
-    showToast("Item Added To Wishlist", images[0], name);
+    if (isInWishlist(product.id)) {
+      showToast("Item Added To Wishlist", images[0], name);
+    } else {
+      addToWishlist(product);
+      showToast("Item Already Exist In Wishlist", images[0], name);
+    }
   };
 
   const handleProductQuickView = () => {
@@ -56,7 +56,10 @@ const ProductOptions = ({ product }: { product: Product }) => {
       <TooltipProvider delayDuration={0}>
         <Tooltip>
           <TooltipTrigger>
-            <div onClick={handleAddToWishList} className="p-2 rounded-lg mr-1 bg-slate-900 text-white">
+            <div
+              onClick={handleAddToWishList}
+              className="p-2 rounded-lg mr-1 bg-slate-900 text-white"
+            >
               <Heart />
             </div>
           </TooltipTrigger>
@@ -79,7 +82,10 @@ const ProductOptions = ({ product }: { product: Product }) => {
         </Tooltip>
         <Tooltip>
           <TooltipTrigger>
-            <div onClick={handleAddToCart} className="p-2 rounded-lg mr-1 bg-slate-900 text-white">
+            <div
+              onClick={handleAddToCart}
+              className="p-2 rounded-lg mr-1 bg-slate-900 text-white"
+            >
               <ShoppingBag />
             </div>
           </TooltipTrigger>

@@ -11,9 +11,12 @@ import {
 import {
   Heart,
   HelpCircle,
+  Home,
   ListOrdered,
   LogOut,
   Menu,
+  Store,
+  Text,
   User,
 } from "lucide-react";
 import Link from "next/link";
@@ -57,16 +60,19 @@ const MobileHeader = () => {
     {
       link: "/",
       label: "Home",
+      icon: <Home />,
       isActive: pathname === "/",
     },
     {
       link: "/shop",
       label: "Shop",
+      icon: <Store />,
       isActive: pathname.includes("/shop"),
     },
     {
       link: "/blog",
       label: "Blogs",
+      icon: <Text />,
       isActive: pathname.includes("/blog"),
     },
   ];
@@ -87,10 +93,11 @@ const MobileHeader = () => {
                     key={link.link}
                     href={link.link}
                     className={cn(
-                      "flex items-center gap-2 hover:bg-gray-200 dark:hover:bg-gray-800 p-2 rounded-md",
+                      "flex items-center gap-2 p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800",
                       link.isActive && "bg-gray-200  dark:bg-gray-800"
                     )}
                   >
+                    {link.icon}
                     {link.label}
                   </Link>
                 ))}

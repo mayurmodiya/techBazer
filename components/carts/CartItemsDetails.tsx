@@ -1,10 +1,11 @@
 "use client";
-import { Minus, Plus } from "lucide-react";
+import { Minus, Plus, X } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import useCartStore from "@/store/cartStore";
 import Link from "next/link";
+import { formatPrice } from "@/lib/formatPrice";
 
 const CartItemsDetails = () => {
 
@@ -35,11 +36,11 @@ const CartItemsDetails = () => {
   }
 
   return (
-    <div className="space-x-2 lg:col-span-2" suppressHydrationWarning >
+    <div className="space-x-2 lg:col-span-2" >
       {cartItems?.map((item) => (
         <div
           key={item?.id}
-          className="flex flex-wrap items-center justify-between md:gap-2 border-b border-gray-300 dark:border-gray-500 mb-4 pb-4 px-2"
+          className="flex flex-wrap items-center justify-between gap-1 md:gap-2 border-b border-gray-300 dark:border-gray-500 py-4 !m-0"
         >
           <div className="flex items-center space-x-4">
             <Image
@@ -54,7 +55,7 @@ const CartItemsDetails = () => {
             </Link>
           </div>
           <p className="border rounded-md border-green-400 py-1 px-2  text-xl text-green-500">
-            ${item?.price}
+            ${formatPrice(item?.price)}
           </p>
 
           <div className="flex items-center gap-2">
@@ -81,13 +82,13 @@ const CartItemsDetails = () => {
               onClick={() => removeFromCart(item.id)}
               variant={"destructive"}
             >
-              Remove
+              <X />
             </Button>
           </div>
         </div>
       ))}
       {cartItems?.length >= 1 && (
-        <Button variant={'outline'} className="mb-2" onClick={clearCart}>Clear Cart</Button>
+        <Button variant={'outline'} className="my-2" onClick={clearCart}>Clear Cart</Button>
       )}
     </div>
   );

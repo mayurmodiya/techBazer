@@ -12,7 +12,7 @@ const CustomersPage = () => {
       email: "john@example.com",
       phone: "1234567890",
       address: "123 Main St, Anytown, USA",
-      image: "/iamges/customer-1.png", // URL to customer image
+      image: "/images/people/person.jpg", 
     },
     {
       id: 2,
@@ -20,9 +20,8 @@ const CustomersPage = () => {
       email: "jane@example.com",
       phone: "9876543210",
       address: "456 Elm St, Othertown, USA",
-      image: "/images/customer-2.png", // URL to customer image
+      image: "/images/people/person.jpg",
     },
-    // Add more customer data as needed
   ];
 
   return (

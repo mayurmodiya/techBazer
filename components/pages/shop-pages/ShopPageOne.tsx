@@ -21,7 +21,7 @@ const ShopPageOne = ({ searchParams }: ShopPageOneProps) => {
 
   return (
     <section className="max-w-screen-2xl flex gap-2 mx-auto p-2 md:p-8">
-        <div className="hidden lg:block w-72">
+        <div className="hidden xl:block w-72">
         <FilterProducts />
         </div>
         <ShopPageContainer gridColumn={3} searchParams={searchParams} />

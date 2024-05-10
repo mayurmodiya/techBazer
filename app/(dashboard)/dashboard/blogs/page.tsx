@@ -1,33 +1,13 @@
 import BlogActions from "@/components/dashboard/blog/BlogActions";
 import SearchBlogs from "@/components/dashboard/blog/SearchBlogs";
 import Pagination from "@/components/others/Pagination";
+import { blogPosts } from "@/data/blog/blogData";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const BlogsPage = () => {
   
-  // Dummy blog data for demonstration
-  const blogs = [
-    {
-      id: 1,
-      title: "Introduction to React",
-      author: "John Doe",
-      date: "April 20, 2024",
-      imageUrl: "/iamges/blog-1.png",
-      description:
-        "  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus molestiae esse excepturi, eveniet quia ex eligendi vel est necessitatibus laudantium hic explicabo omnis placeat consectetur aperiam porro rem blanditiis ipsum.",
-    },
-    {
-      id: 2,
-      title: "Getting Started with Tailwind CSS",
-      author: "Jane Smith",
-      date: "April 22, 2024",
-      imageUrl: "/images/blog-2.png",
-      description:
-        "  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatibus molestiae esse excepturi, eveniet quia ex eligendi vel est necessitatibus laudantium hic explicabo omnis placeat consectetur aperiam porro rem blanditiis ipsum.",
-    },
-  ];
 
   return (
     <div className="max-w-screen-2xl w-full my-4 mx-auto p-4">
@@ -39,7 +19,7 @@ const BlogsPage = () => {
           <SearchBlogs />
           <Link
             href={"/dashboard/blogs/add-blog"}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold p-2 rounded-lg whitespace-nowrap"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg whitespace-nowrap"
           >
             Create Blog
           </Link>
@@ -47,13 +27,13 @@ const BlogsPage = () => {
       </div>
       <div className="">
         {/* Render list of blogs */}
-        {blogs.map((blog) => (
+        {blogPosts.map((blog) => (
           <div
-            key={blog.id}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-4 flex gap-2"
+            key={blog.title}
+            className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 mb-4 flex flex-col md:flex-row gap-2"
           >
             <Image
-              src={blog.imageUrl}
+              src={blog.image}
               alt={blog.title}
               width={96}
               height={96}
@@ -65,9 +45,9 @@ const BlogsPage = () => {
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
                 <span className="font-semibold">Author:</span> {blog.author} |{" "}
-                <span className="font-semibold">Date:</span> {blog.date}
+                <span className="font-semibold">Date:</span> {blog.date.toDateString()}
               </p>
-              <p>{blog.description.slice(0, 100)}</p>
+              <p>{blog.excerpt.slice(0, 100)}</p>
             </div>
             <div className="ml-auto">
               <BlogActions />

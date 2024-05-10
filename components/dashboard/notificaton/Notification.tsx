@@ -23,7 +23,7 @@ const Notification = () => {
 
   return (
     <Popover>
-      <PopoverTrigger className="hover:opacity-60 duration-200">
+      <PopoverTrigger className="p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800 duration-200">
         <Bell />
       </PopoverTrigger>
       <PopoverContent>

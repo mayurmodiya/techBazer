@@ -1,4 +1,4 @@
-'use client'
+
 export const bannerData = [
     {
         title:'Dominate the Competition with the Legion X7',

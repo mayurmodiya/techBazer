@@ -5,7 +5,7 @@ import React from 'react';
 
 const OrdersPage = () => {
 
-  // Sample data for orders
+  // dummy data for orders
   const orders = [
     { id: 1, orderNumber: 'ORD123456', customerName: 'John Doe', date: '2024-04-01', status: 'Shipped' },
     { id: 2, orderNumber: 'ORD123457', customerName: 'Jane Smith', date: '2024-04-02', status: 'Pending' },

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import CheckoutBtn from "../buttons/CheckoutBtn";
 import useCartStore from "@/store/cartStore";
 import Loader from "../others/Loader";
+import { formatPrice } from "@/lib/formatPrice";
 
 const OrderSummaryForCart = () => {
 
@@ -28,22 +29,22 @@ const OrderSummaryForCart = () => {
       </h2>
       <div className="flex justify-between mb-4">
         <span className="text-gray-700 dark:text-gray-300">Subtotal:</span>
-        <span className="text-gray-900 dark:text-white">${getTotalPrice()}</span>
+        <span className="text-gray-900 dark:text-white">${formatPrice(getTotalPrice())}</span>
       </div>
       <div className="flex justify-between mb-4">
         <span className="text-gray-700 dark:text-gray-300">Shipping:</span>
-        <span className="text-gray-900 dark:text-white">${getShippingFee()}</span>
+        <span className="text-gray-900 dark:text-white">${formatPrice(getShippingFee())}</span>
       </div>
       <div className="flex justify-between mb-4">
         <span className="text-gray-700 dark:text-gray-300">Tax:</span>
-        <span className="text-gray-900 dark:text-white">${getTax()}</span>
+        <span className="text-gray-900 dark:text-white">${formatPrice(getTax())}</span>
       </div>
       <div className="flex justify-between">
         <span className="text-xl font-semibold text-gray-900 dark:text-white">
           Total:
         </span>
         <span className="text-xl font-semibold text-gray-900 dark:text-white">
-          ${getTotalAmount()}
+          ${formatPrice(getTotalAmount())}
         </span>
       </div>
       <div className="w-fit mt-4">

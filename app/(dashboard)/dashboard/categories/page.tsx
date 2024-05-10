@@ -1,32 +1,12 @@
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { dummyCategories } from "@/data/category/categoryData";
 import { MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const CategoryPage = () => {
-  // Sample category data
-  const categories = [
-    {
-      id: 1,
-      name: "Electronics",
-      image: "/electronics.jpg",
-      description: "Browse our latest electronics collection.",
-    },
-    {
-      id: 2,
-      name: "Clothing",
-      image: "/clothing.jpg",
-      description: "Discover the trendiest clothing styles.",
-    },
-    {
-      id: 3,
-      name: "Home Appliances",
-      image: "/home-appliances.jpg",
-      description: "Explore our range of home appliances.",
-    },
-    // Add more categories as needed
-  ];
+
 
   return (
     <div className="bg-white dark:bg-gray-800 min-h-screen max-w-screen-2xl w-full mx-auto px-4 py-12 m-2 rounded-md">
@@ -43,7 +23,7 @@ const CategoryPage = () => {
           </Link>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {categories.map((category) => (
+          {dummyCategories.map((category) => (
             <div
               key={category.id}
               className="bg-gray-100 dark:bg-gray-700 rounded-lg overflow-hidden shadow-md"
@@ -64,6 +44,7 @@ const CategoryPage = () => {
                   {category.description}
                 </p>
                 <div className="mt-4 flex space-x-4">
+                  
                   {/* Horizontal icons */}
                   <Popover>
                     <PopoverTrigger className="">

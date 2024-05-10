@@ -31,7 +31,7 @@ const DashboardMobileHeader = () => {
       link: "/dashboard",
       label: "Home",
       icon: <Home size={20} />,
-      isActive: pathname.includes("dashboard"),
+      isActive: pathname === '/dashboard',
     },
     {
       link: "/dashboard/orders",
@@ -87,7 +87,7 @@ const DashboardMobileHeader = () => {
                     <Link
                       href={link.link}
                       className={cn(
-                        "flex items-center text-lg w-full gap-2 hover:opacity-60  py-2 px-4 rounded-md transition-colors duration-300",
+                        "flex items-center text-lg w-full gap-2  p-2 rounded-md transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-800",
                         link.isActive && "bg-slate-300  dark:bg-slate-700"
                       )}
                     >
