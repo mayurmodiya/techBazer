@@ -5,8 +5,8 @@ import React from 'react'
 const BlogPage = () => {
   return (
     <div>
-      <BlogPageOne />
-      {/* <BlogPageTwo /> */}
+      {/* <BlogPageOne /> */}
+      <BlogPageTwo />
     </div>
   )
 }

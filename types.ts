@@ -20,6 +20,7 @@ export type Review = {
   author: string;
   image: string;
   content: string;
+  rating:number
   date: Date;
 };
 

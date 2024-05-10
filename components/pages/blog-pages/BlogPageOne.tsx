@@ -26,7 +26,7 @@ const BlogPageOne = () => {
               <p className="bg-lime-500 w-fit px-4 text-sm rounded-full">
                 {blog.category}
               </p>
-              <h2 className="text-2xl md:text-4xl my-2 font-bold capitalize">
+              <h2 className="text-2xl md:text-4xl font-bold capitalize">
                 {blog.title}
               </h2>
               <div className="text-sm md:text-lg font-medium flex items-center gap-2 text-blue-500">

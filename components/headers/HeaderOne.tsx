@@ -62,7 +62,7 @@ const HeaderOne = () => {
           </div>
           {/* desktop search */}
           <div className="hidden lg:block">
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={<p>Loading...</p>}>
               <SearchBox />
             </Suspense>
           </div>

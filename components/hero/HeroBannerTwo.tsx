@@ -21,7 +21,7 @@ function HeroBannerTwo() {
         <div className="max-w-6xl mx-auto px-4 relative z-10">
           <div className="flex flex-col-reverse md:flex-row items-center">
             <div className="lg:w-1/2 lg:mr-8 text-center md:text-start">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4 ">
+              <h1 className="text-4xl md:text-6xl font-bold mb-4 mt-2 md:mt-0 ">
                 Discover the Latest in Tech
               </h1>
               <p className="text-lg lg:text-xl mb-8">

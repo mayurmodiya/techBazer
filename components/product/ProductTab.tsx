@@ -2,6 +2,7 @@ import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Review } from "@/types";
 import Image from "next/image";
+import { Star } from "lucide-react";
 
 interface ProductTabsProps {
   aboutItem: string[];
@@ -18,7 +19,7 @@ const ProductTab = ({ aboutItem = [], reviews = [] }: ProductTabsProps) => {
         </TabsList>
         <TabsContent value="aboutitem">
           <div>
-            <ol className="list-disc">
+            <ol className="list-disc space-y-2">
               {aboutItem.map((about) => (
                 <li key={about}>{about}</li>
               ))}
@@ -36,13 +37,29 @@ const ProductTab = ({ aboutItem = [], reviews = [] }: ProductTabsProps) => {
                   className="bg-white dark:bg-gray-800 p-4 rounded-md shadow-md space-y-2"
                 >
                   <div>
-                    <p className="text-sm text-muted-foreground">{review.content}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {review.content}
+                    </p>
+                    <div className="flex items-center gap-1">
+                      ({review.rating})
+                      {Array(review.rating)
+                        .fill(null)
+                        .map((rate, i) => (
+                          <Star key={i} size={15} className="text-yellow-400" />
+                        ))}
+                    </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Image src={review.image || ''} alt="person" width={48} height={48} className="rounded-full object-cover w-12 h-12"/>
+                    <Image
+                      src={review.image || ""}
+                      alt="person"
+                      width={48}
+                      height={48}
+                      className="rounded-full object-cover w-12 h-12"
+                    />
                     <div>
-                    <p className="whitespace-nowrap">{review.author}</p>
-                    <small>{review.date.toDateString()}</small>
+                      <p className="whitespace-nowrap">{review.author}</p>
+                      <small>{review.date.toDateString()}</small>
                     </div>
                   </div>
                 </div>
