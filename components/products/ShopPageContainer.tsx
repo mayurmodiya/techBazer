@@ -1,14 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import ProductViewChange from "../product/ProductViewChange";
 import { productsData } from "@/data/products/productsData";
 import Pagination from "../others/Pagination";
 import SingleProductListView from "@/components/product/SingleProductListView";
 import { Product, SearchParams } from "@/types";
 import SingleProductCartView from "../product/SingleProductCartView";
-import BreadcrumbComponent from "../others/Breadcrumb";
-import Link from "next/link";
 import { Loader2 } from "lucide-react";
+import Loader from "../others/Loader";
 
 interface ShopPageContainerProps {
   searchParams: SearchParams;
@@ -127,7 +126,7 @@ const ShopPageContainer = ({
         currentPage={currentPage}
       />
 
-    {/* showing product list or cart view based on state */}
+      {/* showing product list or cart view based on state */}
       {listView === true && (
         <div className="max-w-screen-2xl mx-auto overflow-hidden py-4 md:py-8 gap-4 lg:gap-6">
           {paginatedData.map((product) => (
@@ -135,7 +134,6 @@ const ShopPageContainer = ({
           ))}
         </div>
       )}
-
 
       {listView === false && (
         <div
@@ -150,11 +148,13 @@ const ShopPageContainer = ({
       )}
 
       {/* product pagination here */}
-      <Pagination
-        totalPages={Math.ceil(filteredData.length / itemsPerPage)}
-        currentPage={currentPage}
-        pageName="page"
-      />
+      <Suspense fallback={<Loader />}>
+        <Pagination
+          totalPages={Math.ceil(filteredData.length / itemsPerPage)}
+          currentPage={currentPage}
+          pageName="page"
+        />
+      </Suspense>
     </div>
   );
 };

@@ -1,14 +1,13 @@
 import BlogActions from "@/components/dashboard/blog/BlogActions";
 import SearchBlogs from "@/components/dashboard/blog/SearchBlogs";
+import Loader from "@/components/others/Loader";
 import Pagination from "@/components/others/Pagination";
 import { blogPosts } from "@/data/blog/blogData";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { Suspense } from "react";
 
 const BlogsPage = () => {
-  
-
   return (
     <div className="max-w-screen-2xl w-full my-4 mx-auto p-4">
       <div className="flex justify-between mb-6 gap-2">
@@ -45,7 +44,8 @@ const BlogsPage = () => {
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
                 <span className="font-semibold">Author:</span> {blog.author} |{" "}
-                <span className="font-semibold">Date:</span> {blog.date.toDateString()}
+                <span className="font-semibold">Date:</span>{" "}
+                {blog.date.toDateString()}
               </p>
               <p>{blog.excerpt.slice(0, 100)}</p>
             </div>
@@ -55,7 +55,9 @@ const BlogsPage = () => {
           </div>
         ))}
       </div>
-      <Pagination currentPage={1} totalPages={5} pageName="blogpage"/>
+      <Suspense fallback={<Loader />}>
+        <Pagination currentPage={1} totalPages={5} pageName="blogpage" />
+      </Suspense>
     </div>
   );
 };

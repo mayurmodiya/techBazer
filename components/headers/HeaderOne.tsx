@@ -1,17 +1,18 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import Logo from "../logo/Logo";
 import Link from "next/link";
 import SearchBox from "./SearchBox";
 import Cart from "../carts/Cart";
 import { ThemeToggle } from "../theme/ThemeToggle";
 import AccountPopover from "../account/AccountPopover";
-import { Menu, Search } from "lucide-react";
+import {  Search } from "lucide-react";
 import MobileHeader from "./MobileHeader";
 import { Separator } from "../ui/separator";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { useMobileSearchModal } from "@/store/mobileSearchStore";
+import Loader from "../others/Loader";
 
 const HeaderOne = () => {
   const pathname = usePathname();
@@ -34,8 +35,7 @@ const HeaderOne = () => {
     },
   ];
 
-
-  const {openModal} = useMobileSearchModal()
+  const { openModal } = useMobileSearchModal();
 
   return (
     <header className="sticky bg-white dark:bg-slate-950 top-0 z-50 w-full">
@@ -58,11 +58,13 @@ const HeaderOne = () => {
         <div className="flex items-center gap-6 ">
           {/* mobile search option */}
           <div className="lg:hidden text-center">
-            <Search size={25} onClick={openModal}/>
+            <Search size={25} onClick={openModal} />
           </div>
           {/* desktop search */}
           <div className="hidden lg:block">
-            <SearchBox />
+            <Suspense fallback={<Loader />}>
+              <SearchBox />
+            </Suspense>
           </div>
           <div className="flex items-center gap-6 lg:gap-2 lg:-mt-1">
             <div className="hidden lg:block">

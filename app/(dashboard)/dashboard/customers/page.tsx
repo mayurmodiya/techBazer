@@ -1,7 +1,8 @@
 import SearchCustomer from "@/components/dashboard/customer/SearchCustomer";
+import Loader from "@/components/others/Loader";
 import Pagination from "@/components/others/Pagination";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 
 const CustomersPage = () => {
   // Dummy data for demonstration
@@ -12,7 +13,7 @@ const CustomersPage = () => {
       email: "john@example.com",
       phone: "1234567890",
       address: "123 Main St, Anytown, USA",
-      image: "/images/people/person.jpg", 
+      image: "/images/people/person.jpg",
     },
     {
       id: 2,
@@ -106,7 +107,9 @@ const CustomersPage = () => {
           </tbody>
         </table>
       </div>
-      <Pagination totalPages={5} currentPage={1} pageName="customerpage"/>
+      <Suspense fallback={<Loader />}>
+        <Pagination totalPages={5} currentPage={1} pageName="customerpage" />
+      </Suspense>
     </div>
   );
 };

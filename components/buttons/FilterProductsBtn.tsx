@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import {
   Sheet,
   SheetContent,
@@ -11,6 +11,7 @@ import {
 import { Button } from "../ui/button";
 import FilterProducts from "../products/FilterProducts";
 import { Filter } from "lucide-react";
+import Loader from "../others/Loader";
 
 const FilterProductsBtn = () => {
   return (
@@ -21,7 +22,9 @@ const FilterProductsBtn = () => {
         </div>
       </SheetTrigger>
       <SheetContent className="overflow-y-scroll">
-            <FilterProducts />
+        <Suspense fallback={<Loader />}>
+          <FilterProducts />
+        </Suspense>
       </SheetContent>
     </Sheet>
   );
