@@ -36,7 +36,7 @@ const ProductGallery = ({ images, isInModal }: ProductGalleryProps) => {
         {images.map((image) => (
           <Image
             onClick={() => handleImageSelection(image)}
-            className={cn("rounded-md object-cover border", image === selectedImage && 'ring-4')}
+            className={cn("rounded-md object-cover border", image === selectedImage && 'ring-2')}
             src={image}
             alt="product"
             key={image}
