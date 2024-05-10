@@ -23,13 +23,13 @@ const BlogPageOne = () => {
               />
             </div>
             <div>
-              <p className="bg-lime-500 w-fit px-4 py-1 rounded-full">
+              <p className="bg-lime-500 w-fit px-4 text-sm rounded-full">
                 {blog.category}
               </p>
               <h2 className="text-2xl md:text-4xl my-2 font-bold capitalize">
                 {blog.title}
               </h2>
-              <div className="text-sm md:text-xl font-medium flex items-center gap-2 text-blue-500">
+              <div className="text-sm md:text-lg font-medium flex items-center gap-2 text-blue-500">
                 <span className="hidden md:block">Written By</span>
                 <Avatar>
                   <AvatarImage src="https://github.com/shadcn.png" />
@@ -38,7 +38,8 @@ const BlogPageOne = () => {
                 {blog.author}
               </div>
             </div>
-            <Link href={`/blog/${blog.title}`}>{blog.content.slice(0,300)}... <span className="text-gray-900 dark:text-gray-100 underline">Read More</span></Link>
+            <p>{blog.excerpt}</p>
+            <Link href={`/blog/${blog.title}`} className="text-gray-900 dark:text-gray-100 underline text-muted-foreground my-2">Read More</Link>
           </div>
         ))}
       </div>
