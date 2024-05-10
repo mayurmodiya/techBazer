@@ -32,7 +32,7 @@ const BlogPageTwo = () => {
                 {post.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 text-sm mb-2">
-                By {post.author} | {post.date?.toISOString()}
+                By {post.author} | {post.date?.toDateString()}
               </p>
               <p className="text-gray-700 dark:text-gray-400">{post.excerpt}</p>
               <div className="flex items-center justify-between mt-4">

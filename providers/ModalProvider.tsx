@@ -8,7 +8,7 @@ import React, { Suspense } from "react";
 const ModalProvider = () => {
   return (
     <div>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<p>Loading...</p>}>
         <ProductQuickViewModal />
         <MobileSearch />
       </Suspense>
