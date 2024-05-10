@@ -6,7 +6,7 @@ import Link from "next/link";
 const BannerOne = () => {
 
 
-  // get banner data from backend
+  // get banner data from backend and show here
 
   return (
     <section className="relative w-full bg-gradient-to-r from-purple-500 to-pink-500 py-4">

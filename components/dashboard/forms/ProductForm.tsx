@@ -189,7 +189,7 @@ const ProductForm = () => {
           </Label>
           <textarea
             id="description"
-            className="mt-1 p-2 block border dark:bg-slate-950 w-full rounded-md border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 p-2 block border bg-white dark:bg-slate-950 rounded-md w-full  border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500"
             {...register("description")}
           />
           {errors.description && (

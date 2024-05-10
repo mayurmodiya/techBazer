@@ -18,7 +18,7 @@ const SearchComponent = ({
 
   if (foundProducts.length === 0) {
     return <div className="text-xl font-medium flex flex-col items-center justify-center h-screen w-full">
-      <p >Sorry, no search result found for your query !</p>
+      <p className="p-4 text-center" >Sorry, no search result found for your query !</p>
       <Link className="p-2 underline text-muted-foreground" href={'/'}>Home</Link>
     </div>;
   }

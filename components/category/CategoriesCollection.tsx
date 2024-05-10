@@ -60,7 +60,7 @@ const CategoriesCollection = () => {
                   <Link
                     href={`/shop/${watch.id}`}
                     onClick={(e) => e.stopPropagation()}
-                    className=" font-semibold hover:text-lime-500"
+                    className=" font-semibold hover:text-green-500"
                   >
                     {watch.name.slice(0, 15)}...
                   </Link>
@@ -105,7 +105,7 @@ const CategoriesCollection = () => {
                   <Link
                     href={`/shop/${headphone.id}`}
                     onClick={(e) => e.stopPropagation()}
-                    className=" font-semibold hover:text-lime-500"
+                    className=" font-semibold hover:text-green-500"
                   >
                     {headphone.name.slice(0, 15)}...
                   </Link>
@@ -150,7 +150,7 @@ const CategoriesCollection = () => {
                   <Link
                     href={`/shop/${computer.id}`}
                     onClick={(e) => e.stopPropagation()}
-                    className=" font-semibold hover:text-lime-500"
+                    className=" font-semibold hover:text-green-500"
                   >
                     {computer.name.slice(0, 15)}...
                   </Link>

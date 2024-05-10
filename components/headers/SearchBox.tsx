@@ -23,7 +23,7 @@ const SearchBox = () => {
     }
 
     router.push(`/search?${params}`);
-    
+    setSearchTerm('')
   };
 
 

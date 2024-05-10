@@ -101,7 +101,7 @@ const CommentSection: React.FC = () => {
             <textarea
               id="message"
               {...register("message")}
-              className=" mt-1 block w-full"
+              className=" mt-1 block w-full bg-white dark:bg-slate-950 rounded-md p-2"
             />
             {errors.message && (
               <span className="text-red-500">{errors.message.message}</span>
@@ -116,7 +116,7 @@ const CommentSection: React.FC = () => {
         </form>
 
         {/* Display comments */}
-        <div className="">
+        <div className="p-4">
           <h3 className="text-2xl font-semibold mb-4">Comments</h3>
           <ul className="space-y-4">
             {comments.map((comment, index) => (
@@ -125,9 +125,9 @@ const CommentSection: React.FC = () => {
                   <Image
                     src={comment.image || ""}
                     alt="person image"
-                    width={32}
-                    height={42}
-                    className="rounded-full object-contain"
+                    width={30}
+                    height={30}
+                    className="rounded-full object-cover w-[30px] h-[30px]"
                   />
                   <p className="font-semibold">{comment.name}</p>
                 </div>

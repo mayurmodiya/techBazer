@@ -1,8 +1,5 @@
-import Pagination from "@/components/others/Pagination";
 import FilterProducts from "@/components/products/FilterProducts";
 import ShopPageContainer from "@/components/products/ShopPageContainer";
-import SingleProduct from "@/components/product/SingleProductCartView";
-import { productsData } from "@/data/products/productsData";
 import React, { Suspense } from "react";
 import Loader from "@/components/others/Loader";
 

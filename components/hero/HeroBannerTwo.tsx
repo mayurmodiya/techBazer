@@ -1,12 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import React from "react";
-import { Button } from "../ui/button";
 import Link from "next/link";
 
 function HeroBannerTwo() {
 
-  // get banner data to from server then display here
+  // get latest banner data to from server then display here
 
   return (
     <section className=" bg-gradient-to-r from-gray-500 to-gray-800 text-white">

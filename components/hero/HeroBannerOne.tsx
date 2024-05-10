@@ -42,7 +42,7 @@ const HeroBannerOne = () => {
                   className="text-center justify-center space-y-4"
                 >
                   <p className="flex items-center gap-4 -mb-4 text-xl font-bold rounded-xl  text-rose-600">
-                    <Rocket className="animate-bounce" size={50} />
+                    <Rocket className="animate-bounce" size={40} />
                     <span className="text-blue-800">{data.discountText}</span>
                   </p>
                   <h2
@@ -72,7 +72,7 @@ const HeroBannerOne = () => {
                 >
                   {/* main product image */}
                   <Image
-                    className="bg-transparent rotate-6 relative z-50"
+                    className="bg-transparent rotate-6 relative z-50 object-contain"
                     src={data.images[0]}
                     width={500}
                     height={500}

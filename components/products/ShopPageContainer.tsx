@@ -116,7 +116,7 @@ const ShopPageContainer = ({
   }
 
   return (
-    <div className="md:ml-4">
+    <div className="md:ml-4 p-2 md:p-0">
       {/* product status and filter options */}
       <ProductViewChange
         listView={listView}

@@ -104,7 +104,7 @@ const AddBlogForm: React.FC = () => {
           <textarea
             id="excerpt"
             {...register("excerpt")}
-            className={`mt-1 p-2 w-full rounded-md border ${
+            className={`mt-1 p-2 w-full bg-white dark:bg-slate-950 rounded-md ${
               errors.excerpt ? "border-red-500" : "border-gray-300 dark:border-gray-600"
             } focus:ring-blue-500 focus:border-blue-500`}
           ></textarea>

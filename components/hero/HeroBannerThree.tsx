@@ -2,6 +2,9 @@ import Image from "next/image";
 import React from "react";
 
 const HeroBannerThree = () => {
+
+  // get banner data from the server and show here
+
   return (
     <section className="py-20 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900">
       <div className="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center">

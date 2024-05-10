@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 import { Search, X } from "lucide-react";
@@ -25,21 +25,24 @@ const MobileSearch = () => {
     }
 
     router.push(`/search?${params}`);
-    
+    closeModal();
+    setSearchTerm('')
   };
 
-
   useEffect(() => {
-    if(pathname !== '/search'){
-      setSearchTerm('')
+    if (pathname !== "/search") {
+      setSearchTerm("");
     }
-  },[pathname])
+  }, [pathname]);
 
   if (isOpen) {
     return (
       <div className="fixed top-0 h-[5rem] bg-white dark:bg-slate-950 w-full flex items-center justify-center z-50">
         <div className="flex items-center gap-4 w-full mx-4">
-          <form onSubmit={onFormSubmit} className="flex items-center w-full gap-2 px-4 rounded-lg border focus-visible:ring-2">
+          <form
+            onSubmit={onFormSubmit}
+            className="flex items-center w-full gap-2 px-4 rounded-lg border focus-visible:ring-2"
+          >
             <Input
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -47,7 +50,7 @@ const MobileSearch = () => {
               className="bg-transparent border-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none"
             />
             <button className="bg-transparent border-none" type="submit">
-            <Search />
+              <Search />
             </button>
           </form>
           <Button variant={"destructive"} onClick={closeModal}>
