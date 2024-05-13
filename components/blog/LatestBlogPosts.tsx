@@ -9,7 +9,7 @@ const LatestBlogPosts = ({ twoColunmHeader }: { twoColunmHeader: boolean }) => {
 
   return (
     <div className="py-16 bg-gray-300 dark:bg-gray-950">
-      <div className="max-w-screen-2xl mx-auto px-4 md:px-8">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8">
         {twoColunmHeader ? (
           <div className="flex flex-wrap items-center justify-center md:justify-between mb-12">
             <h2 className="text-3xl md:text-5xl !text-center md:text-start font-bold  text-gray-900 dark:text-white border-l-4 p-2 border-l-rose-500 ">

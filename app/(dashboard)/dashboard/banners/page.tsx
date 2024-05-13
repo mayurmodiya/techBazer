@@ -9,7 +9,7 @@ const BannerPage = () => {
 
   return (
     <div className="bg-white dark:bg-gray-800 min-h-screen w-full my-4 rounded-md">
-      <div className="max-w-screen-2xl w-full mx-auto px-4 py-6">
+      <div className="max-w-screen-xl w-full mx-auto px-4 py-6">
         <div className='flex items-center justify-between mb-6'>
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white ">Manage Banners</h1>
         <div className="flex justify-end">

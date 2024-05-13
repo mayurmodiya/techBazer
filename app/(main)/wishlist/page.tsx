@@ -22,7 +22,7 @@ const WishlistPage = () => {
 
   return (
     <div className="px-4 py-8 lg:px-16 lg:py-12 bg-gray-100 dark:bg-gray-800">
-      <div className="max-w-screen-2xl mx-auto">
+      <div className="max-w-screen-xl mx-auto">
         <div className="mb-4">
           <h1 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white">
             Wishlist

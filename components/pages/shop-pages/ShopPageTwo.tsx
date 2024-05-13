@@ -25,7 +25,7 @@ const ShopPageTwo = ({ searchParams }: ShopPageTwoProps) => {
         <Link href={"/shop"}>Shop</Link>
       </div>
 
-      <div className="p-4 lg:p-8">
+      <div className="p-4 lg:px-16">
         <ShopPageContainer gridColumn={4} searchParams={searchParams} />
       </div>
       <LatestBlogPosts twoColunmHeader={true} />

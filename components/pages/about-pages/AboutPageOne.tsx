@@ -3,7 +3,7 @@ import React from "react";
 
 const AboutPageOne = () => {
   return (
-    <section className="max-w-screen-2xl mx-auto p-2 md:p-4">
+    <section className="max-w-screen-xl mx-auto p-2 md:p-4">
       <h2 className="text-4xl font-bold mb-4 text-center">About Us</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <div className="relative w-full h-[20rem] md:h-[30rem]">

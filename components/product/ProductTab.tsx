@@ -30,11 +30,11 @@ const ProductTab = ({ aboutItem = [], reviews = [] }: ProductTabsProps) => {
           {reviews?.length === 0 ? (
             <div>No Review Found For This Product</div>
           ) : (
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-2">
               {reviews.map((review, index) => (
                 <div
                   key={index}
-                  className="bg-white dark:bg-gray-800 p-4 rounded-md shadow-md space-y-2"
+                  className="p-2 rounded-md shadow-md space-y-2"
                 >
                   <div>
                     <p className="text-sm text-muted-foreground">
@@ -44,7 +44,7 @@ const ProductTab = ({ aboutItem = [], reviews = [] }: ProductTabsProps) => {
                       ({review.rating})
                       {Array(review.rating)
                         .fill(null)
-                        .map((rate, i) => (
+                        .map((_, i) => (
                           <Star key={i} size={15} className="text-yellow-400" />
                         ))}
                     </div>

@@ -7,7 +7,7 @@ import React from "react";
 
 const ContactPageOne = () => {
   return (
-    <section className="max-w-screen-2xl mx-auto p-2 md:p-8">
+    <section className="max-w-screen-xl mx-auto p-2 md:p-8">
       <h2 className="text-4xl my-2 font-bold text-center">Get In Touch</h2>
       <div className="flex flex-col md:flex-row  md:max-h-[50rem] gap-4 overflow-hidden  dark:bg-slate-900 rounded-md shadow">
         

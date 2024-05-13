@@ -21,7 +21,7 @@ const HeroBannerOne = () => {
 
   return (
     <section className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 ">
-      <div className="max-w-screen-2xl mx-auto py-15 px-4 md:px-8 ">
+      <div className="max-w-screen-xl mx-auto py-15 px-4 md:px-8 ">
         <Carousel
           plugins={[
             Autoplay({

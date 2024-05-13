@@ -63,7 +63,7 @@ const DashboardSidebar = () => {
   ];
 
   return (
-    <nav className="w-64 min-h-[88vh] px-4 py-4 border-r-2 hidden lg:block">
+    <nav className="w-64 min-h-[88vh] px-2 py-4 border-r-2 hidden lg:block">
       {/* Sidebar Links */}
       <div>
         <ul className="flex flex-col gap-2 items-start justify-center">

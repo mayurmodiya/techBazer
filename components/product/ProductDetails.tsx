@@ -40,10 +40,10 @@ const ProductDetails = ({ product }: { product: Product }) => {
       {/* product stock */}
       <div>
         {product.stockItems === 0 ? (
-          <p className="text-lg  w-fit rounded-md">out of stock</p>
+          <p className="text-lg  w-fit rounded-md text-muted-foreground">out of stock</p>
         ) : (
           <p className="text-lg w-fit rounded-md text-muted-foreground">
-            Only {product.stockItems} items in stock
+            Only <span className="text-lg text-black dark:text-white">({product.stockItems})</span> items in stock
           </p>
         )}
       </div>

@@ -33,7 +33,7 @@ const OrderDetails = () => {
   };
 
   return (
-    <div className="max-w-screen-2xl w-full mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 my-4">
+    <div className="max-w-screen-xl w-full mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 my-4">
       <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
         Order Details
       </h2>

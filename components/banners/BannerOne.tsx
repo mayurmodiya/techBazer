@@ -10,7 +10,7 @@ const BannerOne = () => {
 
   return (
     <section className="relative w-full bg-gradient-to-r from-purple-500 to-pink-500 py-4">
-      <div className="max-w-screen-2xl mx-auto px-4 md:px-8 flex flex-col-reverse lg:flex-row items-center justify-between">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 flex flex-col-reverse lg:flex-row items-center justify-between">
         <div className="flex flex-col justify-center items-center text-center lg:text-left lg:w-1/2">
           <h2 className="text-3xl lg:text-5xl text-center font-bold text-white mt-4 leading-tight">
             Discover the Latest Gadgets

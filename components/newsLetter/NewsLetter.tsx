@@ -7,7 +7,7 @@ import { Plane } from "lucide-react";
 const NewsLetter = () => {
   return (
     <section className="p-2 md:p-4 my-4 bg-slate-100 dark:bg-slate-700 shadow">
-      <div className="max-w-screen-2xl mx-auto  rounded-lg bg-gradient-to-r h-[20rem]   grid place-content-center">
+      <div className="max-w-screen-xl mx-auto  rounded-lg bg-gradient-to-r h-[20rem]   grid place-content-center">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-center  gap-4">
           <Plane size={100} className="text-rose-500 animate-bounce" />
           <div className="flex flex-col items-center gap-2 p-4">

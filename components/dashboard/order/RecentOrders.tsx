@@ -1,4 +1,5 @@
 import React from 'react';
+import OrderActions from './OrderActions';
 
 const RecentOrdersSection = () => {
   // Dummy data for recent orders
@@ -21,6 +22,7 @@ const RecentOrdersSection = () => {
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Customer Name</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
               <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -31,6 +33,9 @@ const RecentOrdersSection = () => {
                 <td className="px-6 py-4 whitespace-nowrap">{order.date}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${order.status === 'Shipped' ? 'bg-green-100 text-green-800' : order.status === 'Pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'}`}>{order.status}</span>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <OrderActions />
                 </td>
               </tr>
             ))}

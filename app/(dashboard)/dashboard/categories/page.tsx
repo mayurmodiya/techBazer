@@ -9,7 +9,7 @@ const CategoryPage = () => {
 
 
   return (
-    <div className="bg-white dark:bg-gray-800 min-h-screen max-w-screen-2xl w-full mx-auto px-4 py-12 m-2 rounded-md">
+    <div className="bg-white dark:bg-gray-800 min-h-screen max-w-screen-xl w-full mx-auto px-4 py-12 m-2 rounded-md">
       <div >
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-xl font-bold text-gray-900 dark:text-white">

@@ -1,4 +1,5 @@
 import BannerTwo from "@/components/banners/BannerTwo";
+import SpecialDeals from "@/components/banners/SpecialDeals";
 import LatestBlogPosts from "@/components/blog/LatestBlogPosts";
 import CategorySectionOne from "@/components/category/CategorySectionOne";
 import HeroBannerTwo from "@/components/hero/HeroBannerTwo";
@@ -13,6 +14,7 @@ const HomePageTwo = () => {
   return (
     <div className="overflow-hidden">
       <HeroBannerTwo />
+      <SpecialDeals textCenter={true} />
       <Suspense fallback={<Loader />}>
         <CategorySectionOne />
       </Suspense>

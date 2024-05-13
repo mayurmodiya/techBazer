@@ -48,7 +48,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="max-w-screen-xl mx-auto">
       <Sheet open={showSheet} onOpenChange={() => setShowSheet(!showSheet)}>
         <SheetTrigger>
           <div className="relative p-2 hover:bg-gray-200 dark:hover:bg-gray-800 duration-200 rounded-md mt-2">

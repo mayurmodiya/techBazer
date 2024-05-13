@@ -9,7 +9,7 @@ const BannerTwo = () => {
 
   return (
     <section className="bg-gradient-to-b bg-gray-600 to-gray-200 dark:bg-gray-900 ">
-      <div className="relative max-w-screen-2xl mx-auto p-4 md:p-8 overflow-hidden flex flex-col-reverse lg:block">
+      <div className="relative max-w-screen-xl mx-auto p-4 md:p-8 overflow-hidden flex flex-col-reverse lg:block">
         <div className="max-w-7xl mx-auto text-center lg:text-left">
           <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:w-1/2 lg:pb-28 xl:pb-32">
             <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">

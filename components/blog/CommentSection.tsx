@@ -59,7 +59,7 @@ const CommentSection: React.FC = () => {
   };
 
   return (
-    <div className="mt-8 max-w-screen-2xl mx-auto p-4 lg:p-8 border-t-2">
+    <div className="mt-8 max-w-screen-xl mx-auto p-4 lg:p-8 border-t-2">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <form
           onSubmit={handleSubmit(onSubmit)}
@@ -120,7 +120,7 @@ const CommentSection: React.FC = () => {
           <h3 className="text-2xl font-semibold mb-4">Comments</h3>
           <ul className="space-y-4">
             {comments.map((comment, index) => (
-              <li key={index} className="border p-4 rounded-lg">
+              <li key={index} className="p-2 rounded-lg">
                 <div className="flex items-center gap-2">
                   <Image
                     src={comment.image || ""}
